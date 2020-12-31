@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp", "StatsSharp\StatsSharp.csproj", "{5050CABB-20AD-4A92-9131-17B45E7E7CE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp", "StatsSharp\StatsSharp.csproj", "{5050CABB-20AD-4A92-9131-17B45E7E7CE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Probability.Parameter", "StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj", "{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Probability.Parameter", "StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj", "{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.Probability.Parameter", "StatsSharp.Test.Probability.Parameter\StatsSharp.Test.Probability.Parameter.csproj", "{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Test.Probability.Parameter", "StatsSharp.Test.Probability.Parameter\StatsSharp.Test.Probability.Parameter.csproj", "{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.Probability.Distribution", "StatsSharp.Test.Probability.Distribution\StatsSharp.Test.Probability.Distribution.csproj", "{F1853609-DD47-4315-AA78-E410613FBBD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Test.Probability.Distribution", "StatsSharp.Test.Probability.Distribution\StatsSharp.Test.Probability.Distribution.csproj", "{F1853609-DD47-4315-AA78-E410613FBBD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Probability.Distribution", "StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj", "{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Probability.Distribution", "StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj", "{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Extensions", "StatsSharp.Extensions\StatsSharp.Extensions.csproj", "{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Extensions", "StatsSharp.Extensions\StatsSharp.Extensions.csproj", "{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Statistics.StatisticalTest", "StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj", "{D4465226-525E-46D2-910B-BE48E7E9B95B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.SpecialFunction", "StatsSharp.SpecialFunction\StatsSharp.SpecialFunction.csproj", "{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

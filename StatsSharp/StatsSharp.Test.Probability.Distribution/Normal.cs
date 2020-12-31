@@ -35,5 +35,20 @@ namespace StatsSharp.Test.Probability.Distribution
             var actual = density(at);
             Assert.AreEqual(Math.Exp(-Math.Pow((at - mean) / sigma, 2) / 2) / Math.Sqrt(2 * Math.Pow(sigma, 2)), actual, 1.0e-10);
         }
+
+        [TestMethod]
+        public void TestCumulativeDistributionFunction()
+        {
+            var normal = new StatsSharp.Probability.Distribution.Normal();
+
+            var mean = 0;
+            var sigma = 2;
+
+            var parameter = new StatsSharp.Probability.Parameter.Normal(mean, sigma);
+            var cdf = normal.GetCumulativeDistributionFunction(parameter);
+            Assert.AreEqual(0.5, cdf(parameter.Mean), 1.0e-10);
+            Assert.AreEqual(0, cdf(Double.NegativeInfinity), 1.0e-10);
+            Assert.AreEqual(1, cdf(Double.PositiveInfinity), 1.0e-10);
+        }
     }
 }

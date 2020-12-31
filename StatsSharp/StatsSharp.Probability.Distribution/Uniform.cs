@@ -20,5 +20,18 @@ namespace StatsSharp.Probability.Distribution
             var rand = new Random();
             return Enumerable.Range(0, size).Select(x => parameter.Start + rand.NextDouble() * (parameter.End - parameter.Start));
         }
+
+        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Uniform parameter)
+        {
+            return (double data) =>
+            {
+                if (data >= parameter.End)
+                    return 1.0;
+                else if (data <= parameter.Start)
+                    return 0;
+                else
+                    return (parameter.End - data) / (parameter.End - parameter.Start);
+            };
+        }
     }
 }
