@@ -12,15 +12,15 @@ namespace StatsSharp.Statistics.StatisticalTest.Parametric
         {
             var n = nullHypothesis.Samples.Count();
             var sampleMean = nullHypothesis.Samples.Average();
-            var s = nullHypothesis.Samples.StadardDeviation() * n / (n - 1);
+            var s = nullHypothesis.Samples.StadardDeviation() * Math.Sqrt(n / (n - 1.0));
 
-            var stat = (sampleMean - nullHypothesis.PopulationMean) / (s / Math.Sqrt(n));
+            var statistics = (sampleMean - nullHypothesis.PopulationMean) / (s / Math.Sqrt(n));
 
-            var normalDist = new Probability.Distribution.Normal();
-            var normalCdf = normalDist.GetCumulativeDistributionFunction(new Probability.Parameter.Normal(0, 1));
-            var pValue = normalCdf(stat);
+            var normalDist = new Probability.Distribution.T();
+            var normalCdf = normalDist.GetCumulativeDistributionFunction(new Probability.Parameter.T(0, 1, n - 1));
+            var pValue = 1 - (normalCdf(statistics) - 0.5) * 2;
 
-            return new StatisticalTestResult(statistics: stat, pValue: pValue);
+            return new StatisticalTestResult(statistics: statistics, pValue: pValue);
         }
     }
 }

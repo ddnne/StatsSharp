@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace StatsSharp.Probability.Parameter
@@ -18,7 +19,7 @@ namespace StatsSharp.Probability.Parameter
 
         public double End { get; }
 
-        bool IEquatable<IParameter>.Equals(IParameter other)
+        public bool Equals([AllowNull] IParameter other)
         {
             if(other is null)
                 return false;

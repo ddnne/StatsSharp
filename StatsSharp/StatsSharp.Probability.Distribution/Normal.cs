@@ -24,7 +24,7 @@ namespace StatsSharp.Probability.Distribution
 
         public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Normal parameter)
         {
-            return (double data) => (1 + SpecialFunction.ProbabilityIntegral.Erf(
+            return (double data) => (1 + MathNet.Numerics.SpecialFunctions.Erf(
                 (data - parameter.Mean) / (Math.Sqrt(2 * Math.Pow(parameter.StandardDeviation, 2))))) / 2.0;
         }
     }

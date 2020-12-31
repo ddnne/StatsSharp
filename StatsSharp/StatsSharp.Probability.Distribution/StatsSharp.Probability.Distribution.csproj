@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
-    <ProjectReference Include="..\StatsSharp.SpecialFunction\StatsSharp.SpecialFunction.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,25 +5,29 @@ using System.Text;
 
 namespace StatsSharp.Probability.Parameter
 {
-    public class Normal : IParameter
+    public class T : IParameter
     {
-        public Normal(double mean, double standardDeviation)
+        public T(double mean, double scale, double degreeOfFreedom)
         {
-            if (standardDeviation <= 0)
+            if (scale <= 0 || degreeOfFreedom <= 0)
                 throw new ArgumentException("");
             Mean = mean;
-            StandardDeviation = standardDeviation;
+            Scale = scale;
+            DegreeOfFreedom = degreeOfFreedom;
         }
 
         public double Mean { get; }
-        public double StandardDeviation { get; }
+        public double Scale { get; }
+        public double DegreeOfFreedom { get; }
+
         public bool Equals([AllowNull] IParameter other)
         {
             if (other is null)
                 return false;
-            else if (!(other is Normal))
+            else if (!(other is T))
                 return false;
-            else if (Double.Equals(this.Mean, ((Normal)other).Mean) && Double.Equals(this.StandardDeviation, ((Normal)other).StandardDeviation))
+            else if (Double.Equals(this.Mean, ((T)other).Mean) && Double.Equals(this.Scale, ((T)other).Scale)
+                 && Double.Equals(this.DegreeOfFreedom, ((T)other).DegreeOfFreedom))
                 return true;
             else
                 return false;

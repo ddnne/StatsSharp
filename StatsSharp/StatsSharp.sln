@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Extensions", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Statistics.StatisticalTest", "StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj", "{D4465226-525E-46D2-910B-BE48E7E9B95B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.SpecialFunction", "StatsSharp.SpecialFunction\StatsSharp.SpecialFunction.csproj", "{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.StatisticalTest", "StatsSharp.Test.StatisticalTest\StatsSharp.Test.StatisticalTest.csproj", "{045FEF3C-C649-4A1B-AECD-932986A8DE7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F109DFF-3B94-4B6F-8E02-49D0318D9B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
