@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp", "StatsSharp\StatsSharp.csproj", "{5050CABB-20AD-4A92-9131-17B45E7E7CE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Probability.Parameter", "StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj", "{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.Probability.Parameter", "StatsSharp.Test.Probability.Parameter\StatsSharp.Test.Probability.Parameter.csproj", "{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.Probability.Distribution", "StatsSharp.Test.Probability.Distribution\StatsSharp.Test.Probability.Distribution.csproj", "{F1853609-DD47-4315-AA78-E410613FBBD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Probability.Distribution", "StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj", "{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Extensions", "StatsSharp.Extensions\StatsSharp.Extensions.csproj", "{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5050CABB-20AD-4A92-9131-17B45E7E7CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5050CABB-20AD-4A92-9131-17B45E7E7CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5050CABB-20AD-4A92-9131-17B45E7E7CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5050CABB-20AD-4A92-9131-17B45E7E7CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BE8998-9AD3-41ED-9FB1-5C2639F9DDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6939BFC5-71CE-402E-BC8E-DF4E8DF81009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1853609-DD47-4315-AA78-E410613FBBD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1853609-DD47-4315-AA78-E410613FBBD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1853609-DD47-4315-AA78-E410613FBBD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1853609-DD47-4315-AA78-E410613FBBD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BD71AD-F777-4F2A-AF1F-1349DC8BB042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E28E8F8-C839-4189-ACC8-80D55B1A3458}
+	EndGlobalSection
+EndGlobal
