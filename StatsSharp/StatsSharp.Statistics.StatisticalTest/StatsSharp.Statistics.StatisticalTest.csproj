@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MathNet.Numerics" Version="4.13.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
   </ItemGroup>
 

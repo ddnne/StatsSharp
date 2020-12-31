@@ -14,5 +14,7 @@ namespace StatsSharp.Probability.Distribution
         public Func<Data, double> GetProbabilityDensityFunction(Parameter parameter) => (Data data) => this.ProbabilityDensityFunction(data, parameter);
 
         abstract public IEnumerable<Data> GetSamples(Parameter parameter, int size);
+
+        abstract public Func<Data, double> GetCumulativeDistributionFunction(Parameter parameter);
     }
 }

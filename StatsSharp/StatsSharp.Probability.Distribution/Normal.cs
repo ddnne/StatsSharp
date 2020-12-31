@@ -21,5 +21,11 @@ namespace StatsSharp.Probability.Distribution
             return u1s.Zip(u2s, (u1, u2) => new { u1, u2 }).Select(pair =>
                 parameter.Mean + parameter.StandardDeviation * Math.Sqrt(-2 * Math.Log(pair.u1)) * Math.Cos(2 * Math.PI * pair.u2));
         }
+
+        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Normal parameter)
+        {
+            return (double data) => (1 + MathNet.Numerics.SpecialFunctions.Erf(
+                (data - parameter.Mean) / (Math.Sqrt(2 * Math.Pow(parameter.StandardDeviation, 2))))) / 2.0;
+        }
     }
 }

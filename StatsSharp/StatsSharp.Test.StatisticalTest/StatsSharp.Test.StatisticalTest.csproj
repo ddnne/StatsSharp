@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MathNet.Numerics" Version="4.13.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
@@ -15,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
-    <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj" />
   </ItemGroup>
 
 </Project>

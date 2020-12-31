@@ -43,5 +43,20 @@ namespace StatsSharp.Test.Probability.Distribution
             Assert.AreEqual(0, density(start - 1), 1.0e-10);
             Assert.AreEqual(0, density(end + 1), 1.0e-10);
         }
+
+        [TestMethod]
+        public void TestCumulativeDistributionFunction()
+        {
+            var uniform = new StatsSharp.Probability.Distribution.Uniform();
+
+            var start = 0;
+            var end = 2;
+            var parameter = new StatsSharp.Probability.Parameter.Uniform(start, end);
+            var cdf = uniform.GetCumulativeDistributionFunction(parameter);
+
+            Assert.AreEqual(0, cdf(start - 1), 1.0e-10);
+            Assert.AreEqual(1, cdf(end + 1), 1.0e-10);
+            Assert.AreEqual(0.5, cdf(start + (end - start) / 2), 1.0e-10);
+        }
     }
 }
