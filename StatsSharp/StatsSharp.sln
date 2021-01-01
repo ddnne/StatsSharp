@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Probability.Dist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Extensions", "StatsSharp.Extensions\StatsSharp.Extensions.csproj", "{7C76DD4C-C50A-4312-B75E-79A7EB89EFA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Statistics.StatisticalTest", "StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj", "{D4465226-525E-46D2-910B-BE48E7E9B95B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Statistics.StatisticalTest", "StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj", "{D4465226-525E-46D2-910B-BE48E7E9B95B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.StatisticalTest", "StatsSharp.Test.StatisticalTest\StatsSharp.Test.StatisticalTest.csproj", "{045FEF3C-C649-4A1B-AECD-932986A8DE7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.Statistics.StatisticalTest", "StatsSharp.Test.Statistics.StatisticalTest\StatsSharp.Test.Statistics.StatisticalTest.csproj", "{F1E49C8D-D808-461F-A123-B044B2005BEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4465226-525E-46D2-910B-BE48E7E9B95B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{045FEF3C-C649-4A1B-AECD-932986A8DE7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E49C8D-D808-461F-A123-B044B2005BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E49C8D-D808-461F-A123-B044B2005BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E49C8D-D808-461F-A123-B044B2005BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E49C8D-D808-461F-A123-B044B2005BEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

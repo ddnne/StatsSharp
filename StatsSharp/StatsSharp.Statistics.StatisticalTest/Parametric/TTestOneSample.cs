@@ -18,7 +18,7 @@ namespace StatsSharp.Statistics.StatisticalTest.Parametric
 
             var normalDist = new Probability.Distribution.T();
             var normalCdf = normalDist.GetCumulativeDistributionFunction(new Probability.Parameter.T(0, 1, n - 1));
-            var pValue = 1 - (normalCdf(statistics) - 0.5) * 2;
+            var pValue = 1 - Math.Abs(normalCdf(statistics) - 0.5) * 2;
 
             return new StatisticalTestResult(statistics: statistics, pValue: pValue);
         }
