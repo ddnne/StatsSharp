@@ -14,11 +14,11 @@ namespace StatsSharp.Test.StatisticalTest.Parametric
             var expectedStatistics = 2.751076959309973;
             var expectedPValue = 0.015611934395473872;
 
-            var tTest = new StatsSharp.Statistics.StatisticalTest.Parametric.TTestOneSample();
-            var nullHypothesis = new StatsSharp.Statistics.StatisticalTest.Parametric.TTestOneSampleNullHypothesis(samples, popMean);
+            var tTest = new Statistics.StatisticalTest.Parametric.TTestOneSample();
+            var nullHypothesis = new Statistics.StatisticalTest.Parametric.TTestOneSampleNullHypothesis(samples, popMean);
             var result = tTest.Calculate(nullHypothesis);
 
-            // Assert.AreEqual(expectedStatistics, result.Statistics, 1.0e-10);
+            Assert.AreEqual(expectedStatistics, result.Statistics, 1.0e-10);
             Assert.AreEqual(expectedPValue, result.PValue, 1.0e-10);
         }
     }
