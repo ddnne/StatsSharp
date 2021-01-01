@@ -8,6 +8,7 @@
     <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.NullHypothesis\StatsSharp.Statistics.StatisticalTest.NullHypothesis.csproj" />
   </ItemGroup>
 
 </Project>

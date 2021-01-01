@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StatsSharp.Statistics.StatisticalTest.Parametric
+namespace StatsSharp.Statistics.StatisticalTest.NullHypothesis
 {
-    public class TTestOneSampleNullHypothesis : INullHypothesis
+    public class TTestOneSampleNullHypothesis
     {
         public TTestOneSampleNullHypothesis(IEnumerable<double> samples, double populationMean)
         {

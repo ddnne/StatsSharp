@@ -1,14 +1,15 @@
 ﻿using StatsSharp.Extensions;
+using StatsSharp.Statistics.StatisticalTest.NullHypothesis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Statistics.StatisticalTest.Parametric
+namespace StatsSharp.Statistics.StatisticalTest
 {
-    public class TTestOneSample : IStaisticalTest<TTestOneSampleNullHypothesis>
+    public partial class Parametric
     {
-        public StatisticalTestResult Calculate(TTestOneSampleNullHypothesis nullHypothesis)
+        public static StatisticalTestResult TTestOneSample(TTestOneSampleNullHypothesis nullHypothesis)
         {
             var n = nullHypothesis.Samples.Count();
             var sampleMean = nullHypothesis.Samples.Average();
