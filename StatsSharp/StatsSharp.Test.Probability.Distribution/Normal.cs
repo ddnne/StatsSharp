@@ -50,5 +50,17 @@ namespace StatsSharp.Test.Probability.Distribution
             Assert.AreEqual(0, cdf(Double.NegativeInfinity), 1.0e-10);
             Assert.AreEqual(1, cdf(Double.PositiveInfinity), 1.0e-10);
         }
+
+        [TestMethod]
+        public void TestMaxProbabilityDensityFunction()
+        {
+            var normal = new StatsSharp.Probability.Distribution.Normal();
+
+            var mean = 0;
+            var sigma = 1;
+
+            var parameter = new StatsSharp.Probability.Parameter.Normal(mean, sigma);
+            Assert.AreEqual(1 / Math.Sqrt(2), normal.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+        }
     }
 }

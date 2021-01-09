@@ -58,5 +58,16 @@ namespace StatsSharp.Test.Probability.Distribution
             Assert.AreEqual(1, cdf(end + 1), 1.0e-10);
             Assert.AreEqual(0.5, cdf(start + (end - start) / 2), 1.0e-10);
         }
+
+        [TestMethod]
+        public void TestMaxProbabilityDensityFunction()
+        {
+            var uniform = new StatsSharp.Probability.Distribution.Uniform();
+
+            var start = 0;
+            var end = 2;
+            var parameter = new StatsSharp.Probability.Parameter.Uniform(start, end);
+            Assert.AreEqual(1.0/(end - start), uniform.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+        }
     }
 }

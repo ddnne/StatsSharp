@@ -63,5 +63,17 @@ namespace StatsSharp.Test.Probability.Distribution
 
             Assert.AreEqual(expected, actual, 1.0e-10);
         }
+
+        [TestMethod]
+        public void TestMaxProbabilityDensityFunction()
+        {
+            var t = new StatsSharp.Probability.Distribution.T();
+
+            var mean = 0;
+            var scale = 1;
+            double dof = 2;
+            var parameter = new StatsSharp.Probability.Parameter.T(mean, scale, dof);
+            Assert.AreEqual(1/(2*Math.Sqrt(2)), t.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using StatsSharp.Extensions;
 using StatsSharp.Statistics.StatisticalTest.NullHypothesis;
+using StatsSharp.Probability;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,8 @@ namespace StatsSharp.Statistics.StatisticalTest
 
             var statistics = (sampleMean - nullHypothesis.PopulationMean) / (sampleStandardDeviation / Math.Sqrt(n));
 
-            var tDist = new Probability.Distribution.T();
-            var tCdf = tDist.GetCumulativeDistributionFunction(new Probability.Parameter.T(0, 1, n - 1));
+            var tDist = new StatsSharp.Probability.Distribution.T();
+            var tCdf = tDist.GetCumulativeDistributionFunction(new StatsSharp.Probability.Parameter.T(0, 1, n - 1));
             var pValue = 1 - Math.Abs(tCdf(statistics) - 0.5) * 2;
 
             return new StatisticalTestResult(statistics: statistics, pValue: pValue);

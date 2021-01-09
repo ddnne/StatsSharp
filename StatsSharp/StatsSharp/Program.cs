@@ -10,10 +10,20 @@ namespace StatsSharp
         {
             Console.WriteLine("Hello World!");
 
-            var samples = (new Probability.Distribution.Normal()).GetSamples(new Probability.Parameter.Normal(Math.Exp(1), Math.PI), 10000);
-            Console.WriteLine(samples.Average());
-            Console.WriteLine(samples.StadardDeviation());
+            var size = 1000000;
+            var rejectionSamplerConfig = new StatsSharp.Probability.SamplerConfig.RejectionSamplerConfig
+                <double, Probability.Parameter.Normal, Probability.Parameter.Normal>(new Probability.Distribution.Normal(), new Probability.Parameter.Normal(0, 1),
+                new Probability.Distribution.Normal(), new Probability.Parameter.Normal(0, 1), size, 1);
+            var sampler = new Probability.Sampler.RejectionSampler<double, Probability.Parameter.Normal, Probability.Parameter.Normal>();
+            var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig);
 
+            var nullHypothesis = new Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(sampleFromSampler, 0);
+            var results = Statistics.StatisticalTest.Parametric.TTestOneSample(nullHypothesis);
+
+            Console.WriteLine(results.Statistics);
+            Console.WriteLine(results.PValue);
+            Console.WriteLine(sampleFromSampler.Average());
+            Console.WriteLine(sampleFromSampler.StadardDeviation());
         }
     }
 }
