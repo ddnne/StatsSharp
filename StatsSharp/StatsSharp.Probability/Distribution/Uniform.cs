@@ -33,5 +33,10 @@ namespace StatsSharp.Probability.Distribution
                     return (parameter.End - data) / (parameter.End - parameter.Start);
             };
         }
+
+        public override double GetMaxProbabilityDensityFunction(Parameter.Uniform parameter)
+        {
+            return 1.0 / (parameter.End - parameter.Start);
+        }
     }
 }

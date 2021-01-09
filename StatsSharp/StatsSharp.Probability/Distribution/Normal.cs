@@ -27,5 +27,10 @@ namespace StatsSharp.Probability.Distribution
             return (double data) => (1 + MathNet.Numerics.SpecialFunctions.Erf(
                 (data - parameter.Mean) / (Math.Sqrt(2 * Math.Pow(parameter.StandardDeviation, 2))))) / 2.0;
         }
+
+        public override double GetMaxProbabilityDensityFunction(Parameter.Normal parameter)
+        {
+            return this.ProbabilityDensityFunction(parameter.Mean, parameter);
+        }
     }
 }
