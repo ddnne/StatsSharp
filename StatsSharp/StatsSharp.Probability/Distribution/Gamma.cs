@@ -29,6 +29,7 @@ namespace StatsSharp.Probability.Distribution
             var expParam = new Parameter.Exponential(parameter.Theta);
             var uniform = new Distribution.Uniform();
             var uniformParam = new Parameter.Uniform(0, 1);
+
             return Enumerable.Range(0, size).Select(i =>
             {
                 double x = 0;
@@ -42,17 +43,14 @@ namespace StatsSharp.Probability.Distribution
                         x = Math.Pow(q, 1 / decK);
                         if (uniform.GetSamples(uniformParam, 1).First() < Math.Exp(-x))
                             break;
-
                     }
                     else
                     {
                         x = -Math.Log((p - q) / decK);
                         if (uniform.GetSamples(uniformParam, 1).First() < Math.Pow(x, decK - 1))
                             break;
-
                     }
                 }
-
                 double sample = (x * parameter.Theta);
                 return sumExp + sample;
             });

@@ -5,26 +5,26 @@ using System.Text;
 
 namespace StatsSharp.Probability.Parameter
 {
-    public class Gamma : IParameter
+    public class Weibull : IParameter
     {
-        public Gamma(double k, double theta)
+        public Weibull(double shape, double scale)
         {
-            if (k <= 0 || theta <= 0)
+            if (shape <= 0 || scale <= 0)
                 throw new ArgumentException();
-            K = k;
-            Theta = theta;
+            Shape = shape;
+            Scale = scale;
         }
 
-        public double K { get; }
-        public double Theta { get; }
+        public double Shape { get; }
+        public double Scale { get; }
 
         public bool Equals([AllowNull] IParameter other)
         {
             if (other is null)
                 return false;
-            else if (!(other is Gamma))
+            else if (!(other is Weibull))
                 return false;
-            else if (Double.Equals(this.K, ((Gamma)other).K) && Double.Equals(this.Theta, ((Gamma)other).Theta))
+            else if (Double.Equals(this.Shape, ((Weibull)other).Shape) && Double.Equals(this.Scale, ((Weibull)other).Scale))
                 return true;
             else
                 return false;
