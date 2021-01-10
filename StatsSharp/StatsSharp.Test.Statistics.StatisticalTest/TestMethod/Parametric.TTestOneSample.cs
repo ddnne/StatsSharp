@@ -14,7 +14,7 @@ namespace StatsSharp.Test.StatisticalTest
             var expectedStatistics = 2.751076959309973;
             var expectedPValue = 0.015611934395473872;
 
-            var result = Statistics.StatisticalTest.Parametric.TTestOneSample(new Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(samples, popMean));
+            var result = StatsSharp.Statistics.StatisticalTest.TestMethod.Parametric.TTestOneSample(new StatsSharp.Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(samples, popMean));
             Assert.AreEqual(expectedStatistics, result.Statistics, 1.0e-10);
             Assert.AreEqual(expectedPValue, result.PValue, 1.0e-10);
         }

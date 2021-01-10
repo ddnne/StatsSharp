@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
-    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.NullHypothesis\StatsSharp.Statistics.StatisticalTest.NullHypothesis.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj" />
   </ItemGroup>
 
