@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace StatsSharp.Test.Probability.SamplerConfig
 {
     [TestClass]
-    public class SamplingConfigBase
+    public class SamplerConfigBase
     {
         [TestMethod]
         public void ConstructorTest()

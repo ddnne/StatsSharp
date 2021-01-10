@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Statistics.StatisticalTest
+namespace StatsSharp.Statistics.StatisticalTest.TestMethod
 {
     public partial class Parametric
     {

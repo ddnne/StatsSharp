@@ -18,7 +18,7 @@ namespace StatsSharp
             var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig);
 
             var nullHypothesis = new Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(sampleFromSampler, 0);
-            var results = Statistics.StatisticalTest.Parametric.TTestOneSample(nullHypothesis);
+            var results = Statistics.StatisticalTest.TestMethod.Parametric.TTestOneSample(nullHypothesis);
 
             Console.WriteLine(results.Statistics);
             Console.WriteLine(results.PValue);
