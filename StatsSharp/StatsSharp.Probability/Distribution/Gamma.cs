@@ -16,7 +16,7 @@ namespace StatsSharp.Probability.Distribution
         public override double GetMaxProbabilityDensityFunction(Parameter.Gamma parameter)
         {
             if (parameter.K >= 1)
-                return (parameter.K - 1) * parameter.Theta;
+                return this.ProbabilityDensityFunction((parameter.K - 1) * parameter.Theta, parameter);
             else
                 return Double.PositiveInfinity;
         }
