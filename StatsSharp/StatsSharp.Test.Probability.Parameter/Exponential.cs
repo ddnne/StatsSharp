@@ -19,7 +19,7 @@ namespace StatsSharp.Test.Probability.Parameter
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void TestStartLargerThanEnd()
+        public void TestMinusAverage()
         {
             var average = -1;
             var expParameter = new StatsSharp.Probability.Parameter.Exponential(average);

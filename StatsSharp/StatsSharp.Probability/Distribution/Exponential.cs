@@ -14,7 +14,7 @@ namespace StatsSharp.Probability.Distribution
 
         public override double GetMaxProbabilityDensityFunction(Parameter.Exponential parameter)
         {
-            return 1.0 / parameter.Average;
+            return GetProbabilityDensityFunction(parameter)(0);
         }
 
         public override IEnumerable<double> GetSamples(Parameter.Exponential parameter, int size)
