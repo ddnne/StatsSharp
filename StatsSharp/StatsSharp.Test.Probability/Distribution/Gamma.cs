@@ -50,17 +50,17 @@ namespace StatsSharp.Test.Probability.Distribution
         }
 
         [TestMethod]
-        public void TestMaxProbabilityDensityFunction()
+        public void TestMaxValueProbabilityDensityFunction()
         {
             var Gamma = new StatsSharp.Probability.Distribution.Gamma();
 
             var k = 2;
             var theta = 1;
             var kGt1Case = new StatsSharp.Probability.Parameter.Gamma(k, theta);
-            Assert.AreEqual(Math.Exp(-1.0), Gamma.GetMaxProbabilityDensityFunction(kGt1Case), 1.0e-10);
+            Assert.AreEqual(Math.Exp(-1.0), Gamma.GetMaxValueProbabilityDensityFunction(kGt1Case), 1.0e-10);
 
             var kLt1Case = new StatsSharp.Probability.Parameter.Gamma(0.5, theta);
-            Assert.IsTrue(Double.IsPositiveInfinity(Gamma.GetMaxProbabilityDensityFunction(kLt1Case)));
+            Assert.IsTrue(Double.IsPositiveInfinity(Gamma.GetMaxValueProbabilityDensityFunction(kLt1Case)));
         }
     }
 }

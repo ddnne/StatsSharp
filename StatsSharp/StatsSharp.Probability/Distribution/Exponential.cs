@@ -12,7 +12,7 @@ namespace StatsSharp.Probability.Distribution
             return (double x) => x >= 0 ? 1 - Math.Exp(-x / parameter.Average) : 0;
         }
 
-        public override double GetMaxProbabilityDensityFunction(Parameter.Exponential parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Exponential parameter)
         {
             return GetProbabilityDensityFunction(parameter)(0);
         }

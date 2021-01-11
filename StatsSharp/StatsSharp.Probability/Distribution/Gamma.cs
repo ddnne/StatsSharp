@@ -13,7 +13,7 @@ namespace StatsSharp.Probability.Distribution
             return (double x) => SpecialFunctions.GammaLowerIncomplete(parameter.K, x / parameter.Theta) / SpecialFunctions.Gamma(parameter.K);
         }
 
-        public override double GetMaxProbabilityDensityFunction(Parameter.Gamma parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Gamma parameter)
         {
             if (parameter.K >= 1)
                 return this.ProbabilityDensityFunction((parameter.K - 1) * parameter.Theta, parameter);

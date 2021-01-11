@@ -14,7 +14,7 @@ namespace StatsSharp.Statistics.StatisticalTest.TestMethod
         {
             var n = nullHypothesis.Samples.Count();
             var sampleMean = nullHypothesis.Samples.Average();
-            var sampleStandardDeviation = nullHypothesis.Samples.StadardDeviation() * Math.Sqrt(n / (n - 1.0));
+            var sampleStandardDeviation = nullHypothesis.Samples.StandardDeviation() * Math.Sqrt(n / (n - 1.0));
 
             var statistics = (sampleMean - nullHypothesis.PopulationMean) / (sampleStandardDeviation / Math.Sqrt(n));
 

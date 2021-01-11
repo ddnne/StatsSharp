@@ -60,14 +60,14 @@ namespace StatsSharp.Test.Probability.Distribution
         }
 
         [TestMethod]
-        public void TestMaxProbabilityDensityFunction()
+        public void TestMaxValueProbabilityDensityFunction()
         {
             var uniform = new StatsSharp.Probability.Distribution.Uniform();
 
             var start = 0;
             var end = 2;
             var parameter = new StatsSharp.Probability.Parameter.Uniform(start, end);
-            Assert.AreEqual(1.0/(end - start), uniform.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+            Assert.AreEqual(1.0/(end - start), uniform.GetMaxValueProbabilityDensityFunction(parameter), 1.0e-10);
         }
     }
 }

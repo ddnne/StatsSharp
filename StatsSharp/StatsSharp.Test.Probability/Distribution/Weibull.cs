@@ -52,7 +52,7 @@ namespace StatsSharp.Test.Probability.Distribution
         }
 
         [TestMethod]
-        public void TestMaxProbabilityDensityFunction()
+        public void TestMaxValueProbabilityDensityFunction()
         {
             var weibull = new StatsSharp.Probability.Distribution.Weibull();
 
@@ -60,12 +60,12 @@ namespace StatsSharp.Test.Probability.Distribution
             var scale = 2;
 
             var parameter = new StatsSharp.Probability.Parameter.Weibull(shape, scale);
-            Assert.AreEqual(1.0 / 2.0, weibull.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+            Assert.AreEqual(1.0 / 2.0, weibull.GetMaxValueProbabilityDensityFunction(parameter), 1.0e-10);
 
             var largeShape = 2;
 
             var largeShapeParameter = new StatsSharp.Probability.Parameter.Weibull(largeShape, scale);
-            Assert.AreEqual(Math.Exp(-1.0 / 2.0) / Math.Sqrt(2), weibull.GetMaxProbabilityDensityFunction(largeShapeParameter), 1.0e-10);
+            Assert.AreEqual(Math.Exp(-1.0 / 2.0) / Math.Sqrt(2), weibull.GetMaxValueProbabilityDensityFunction(largeShapeParameter), 1.0e-10);
         }
     }
 }

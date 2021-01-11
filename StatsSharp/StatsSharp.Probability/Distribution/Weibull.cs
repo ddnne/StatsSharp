@@ -34,7 +34,7 @@ namespace StatsSharp.Probability.Distribution
             };
         }
 
-        public override double GetMaxProbabilityDensityFunction(Parameter.Weibull parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Weibull parameter)
         {
             if (parameter.Shape > 1)
                 return ProbabilityDensityFunction(parameter.Scale * Math.Pow((parameter.Shape - 1) / parameter.Shape, 1.0 / parameter.Shape), parameter);
