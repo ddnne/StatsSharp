@@ -18,7 +18,8 @@ namespace StatsSharp.StochasticProcess.PointProcess
             while (t <= config.End)
             {
                 t = t + exp.GetSamples(expParam, 1).First();
-                yield return t;
+                if(t <= config.End)
+                    yield return t;
             }
 
         }

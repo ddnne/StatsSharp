@@ -29,30 +29,14 @@ namespace StatsSharp.StochasticProcess.PointProcess
         }
         private IEnumerable<double> GetEventSample(NonStationaryPoissonProcessConfig config)
         {
-            var t = config.Start;
-            var proposalNextTime = config.Start;
-            var exp = new Probability.Distribution.Exponential();
+            var intensity = config.Intensity(FindIntensityMaximumTime(config));
             var uniform = new Probability.Distribution.Uniform();
             var uniformParam = new Probability.Parameter.Uniform(0, 1);
-            var intensity = config.Intensity(FindIntensityMaximumTime(config));
 
-            while (t <= config.End)
-            {
-                var expParam = new Probability.Parameter.Exponential(1.0 / intensity);
-                proposalNextTime = proposalNextTime + exp.GetSamples(expParam, 1).First();
-                if (proposalNextTime <= config.End)
-                {
-                    var u = uniform.GetSamples(uniformParam, 1).First();
-                    if (config.Intensity(proposalNextTime) / intensity >= u)
-                    {
-                        t = proposalNextTime;
-                        yield return t;
-                    }
-                }
-                else
-                    break;
-            }
+            var stPoissonProc = new StochasticProcess.PointProcess.StationaryPoissonProcess();
+            var sample = stPoissonProc.GetEventSamples(new StationaryPoissonProcessConfig(intensity, config.Start, config.End), 1).First();
 
+            return sample.Where(t => config.Intensity(t) / intensity >= uniform.GetSamples(uniformParam, 1).First());
         }
         public IEnumerable<IEnumerable<double>> GetEventSamples(NonStationaryPoissonProcessConfig config, int size)
         {
