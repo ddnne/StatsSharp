@@ -8,7 +8,7 @@ namespace StatsSharp.Probability.Distribution
     {
         Func<Parameter, double> GetLikelihoodFunction(Data data);
         Func<Data, double> GetProbabilityDensityFunction(Parameter parameter);
-        double GetMaxProbabilityDensityFunction(Parameter parameter);
+        double GetMaxValueProbabilityDensityFunction(Parameter parameter);
         Func<Data, double> GetCumulativeDistributionFunction(Parameter parameter);
         IEnumerable<Data> GetSamples(Parameter parameter, int size);
     }

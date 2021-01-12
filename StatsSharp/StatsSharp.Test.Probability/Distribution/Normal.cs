@@ -52,7 +52,7 @@ namespace StatsSharp.Test.Probability.Distribution
         }
 
         [TestMethod]
-        public void TestMaxProbabilityDensityFunction()
+        public void TestMaxValueProbabilityDensityFunction()
         {
             var normal = new StatsSharp.Probability.Distribution.Normal();
 
@@ -60,7 +60,7 @@ namespace StatsSharp.Test.Probability.Distribution
             var sigma = 1;
 
             var parameter = new StatsSharp.Probability.Parameter.Normal(mean, sigma);
-            Assert.AreEqual(1 / Math.Sqrt(2), normal.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+            Assert.AreEqual(1 / Math.Sqrt(2), normal.GetMaxValueProbabilityDensityFunction(parameter), 1.0e-10);
         }
     }
 }

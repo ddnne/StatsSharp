@@ -53,13 +53,13 @@ namespace StatsSharp.Test.Probability.Distribution
         }
 
         [TestMethod]
-        public void TestMaxProbabilityDensityFunction()
+        public void TestMaxValueProbabilityDensityFunction()
         {
             var exp = new StatsSharp.Probability.Distribution.Exponential();
 
             var average = 1;
             var parameter = new StatsSharp.Probability.Parameter.Exponential(average);
-            Assert.AreEqual(1.0, exp.GetMaxProbabilityDensityFunction(parameter), 1.0e-10);
+            Assert.AreEqual(1.0, exp.GetMaxValueProbabilityDensityFunction(parameter), 1.0e-10);
         }
     }
 }

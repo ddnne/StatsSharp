@@ -16,6 +16,6 @@ namespace StatsSharp.Probability.Distribution
         abstract public IEnumerable<Data> GetSamples(Parameter parameter, int size);
 
         abstract public Func<Data, double> GetCumulativeDistributionFunction(Parameter parameter);
-        public abstract double GetMaxProbabilityDensityFunction(Parameter parameter);
+        public abstract double GetMaxValueProbabilityDensityFunction(Parameter parameter);
     }
 }

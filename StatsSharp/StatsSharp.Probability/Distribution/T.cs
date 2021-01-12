@@ -16,7 +16,7 @@ namespace StatsSharp.Probability.Distribution
                 (SpecialFunctions.BetaRegularized(r / 2.0, 0.5, 1.0) - SpecialFunctions.BetaRegularized(r / 2.0, 0.5, r / (r + Math.Pow(t(data), 2)))) * Math.Sign(t(data)) / 2.0;
         }
 
-        public override double GetMaxProbabilityDensityFunction(Parameter.T parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.T parameter)
         {
             return this.ProbabilityDensityFunction(parameter.Mean, parameter);
         }
