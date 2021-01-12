@@ -32,5 +32,31 @@ namespace StatsSharp.Extensions
         {
             return Math.Sqrt(values.Variance());
         }
+
+        public static IEnumerable<double> DiffFromPreviousElement(this IEnumerable<double> values)
+        {
+            var curr = values.Skip(1);
+            var prev = values.SkipLast(1);
+            return curr.Zip(prev, (c, p) => c - p);
+        }
+
+        public static IEnumerable<int> DiffFromPreviousElement(this IEnumerable<int> values)
+        {
+            var curr = values.Skip(1);
+            var prev = values.SkipLast(1);
+            return curr.Zip(prev, (c, p) => c - p);
+        }
+
+        public static T MinBy<T, U>(this IEnumerable<T> source, Func<T, U> selector)
+        {
+            var lookup = source.ToLookup(selector);
+            return lookup[lookup.Min(a => a.Key)].First();
+        }
+
+        public static T MaxBy<T, U>(this IEnumerable<T> source, Func<T, U> selector)
+        {
+            var lookup = source.ToLookup(selector);
+            return lookup[lookup.Max(a => a.Key)].Last();
+        }
     }
 }

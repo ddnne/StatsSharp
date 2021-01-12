@@ -4,18 +4,18 @@ using System.Text;
 
 namespace StatsSharp.StochasticProcess.PointProcessConfig
 {
-    public class StationaryPoissonProcessConfig : IPoissonProcessConfig<double>
+    public class NonStationaryPoissonProcessConfig : IPoissonProcessConfig<Func<double, double>>
     {
-        public StationaryPoissonProcessConfig(double intensity, double start, double end)
+        public NonStationaryPoissonProcessConfig(Func<double, double> intensity, double start, double end)
         {
-            if (intensity <= 0 || end < start)
+            if (end < start)
                 throw new ArgumentException();
-            Intensity = intensity;
+            Intensity =  intensity;
             Start = start;
             End = end;
         }
 
-        public double Intensity { get; }
+        public Func<double, double> Intensity { get; }
         public double Start { get; }
         public double End { get; }
     }
