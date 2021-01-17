@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StatsSharp.StochasticProcess.PointProcessConfig
 {
-    public interface IPointProcess
+    public interface IPointProcessConfig
     {
         double Start { get; }
         double End { get; }

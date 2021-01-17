@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using StatsSharp.StochasticProcess.PointProcessEvent;
 
 namespace StatsSharp.StochasticProcess.PointProcess
 {
-    public class StationaryPoissonProcess : IPoissonProcess<StationaryPoissonProcessConfig, double>
+    public class StationaryPoissonProcess : IPoissonProcess<StationaryPoissonProcessConfig, UnivariatePointProcessEvent, double>
     {
-        private IEnumerable<double> GetEventSample(StationaryPoissonProcessConfig config)
+        private IEnumerable<UnivariatePointProcessEvent> GetEventSample(StationaryPoissonProcessConfig config)
         {
             var t = config.Start;
             var exp = new Probability.Distribution.Exponential();
@@ -18,13 +19,13 @@ namespace StatsSharp.StochasticProcess.PointProcess
             while (t <= config.End)
             {
                 t = t + exp.GetSamples(expParam, 1).First();
-                if(t <= config.End)
-                    yield return t;
+                if (t <= config.End)
+                    yield return new UnivariatePointProcessEvent(t);
             }
 
         }
 
-        public IEnumerable<IEnumerable<double>> GetEventSamples(StationaryPoissonProcessConfig config, int size)
+        public IEnumerable<IEnumerable<UnivariatePointProcessEvent>> GetEventSamples(StationaryPoissonProcessConfig config, int size)
         {
             return Enumerable.Range(0, size).AsParallel().Select(i => GetEventSample(config).ToList());
         }

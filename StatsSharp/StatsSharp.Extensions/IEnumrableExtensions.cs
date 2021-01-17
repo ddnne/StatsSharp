@@ -58,5 +58,25 @@ namespace StatsSharp.Extensions
             var lookup = source.ToLookup(selector);
             return lookup[lookup.Max(a => a.Key)].Last();
         }
+
+        public static IEnumerable<double> CumulativeSum(this IEnumerable<double> values)
+        {
+            double sum = 0;
+            foreach (var value in values)
+            {
+                sum += value;
+                yield return sum;
+            }
+        }
+
+        public static IEnumerable<int> CumulativeSum(this IEnumerable<int> values)
+        {
+            int sum = 0;
+            foreach (var value in values)
+            {
+                sum += value;
+                yield return sum;
+            }
+        }
     }
 }

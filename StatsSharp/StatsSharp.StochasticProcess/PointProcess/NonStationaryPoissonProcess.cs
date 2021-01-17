@@ -6,39 +6,26 @@ using System.Linq;
 using System.Text;
 using MathNet.Numerics.Optimization;
 using StatsSharp.Extensions;
+using StatsSharp.StochasticProcess.PointProcessEvent;
 
 namespace StatsSharp.StochasticProcess.PointProcess
 {
-    public class NonStationaryPoissonProcess : IPoissonProcess<NonStationaryPoissonProcessConfig, Func<double, double>>
+    public class NonStationaryPoissonProcess : IPoissonProcess<NonStationaryPoissonProcessConfig, UnivariatePointProcessEvent, Func<double, double>>
     {
-        private double FindIntensityMaximumTime(NonStationaryPoissonProcessConfig config, int gridSize = 10000)
+        private IEnumerable<UnivariatePointProcessEvent> GetEventSample(NonStationaryPoissonProcessConfig config)
         {
-            try
-            {
-                var algorithm = new GoldenSectionMinimizer(1e-5, 1000);
-                Func<double, double> f1 = (double t) => -config.Intensity(t);
-                var obj = ObjectiveFunction.ScalarValue(f1);
-                var r1 = GoldenSectionMinimizer.Minimum(obj, config.Start, config.End);
-                return r1.MinimizingPoint;
-            }
-            catch (OptimizationException e)
-            {
-                var times = Enumerable.Range(0, gridSize + 1).Select(i => config.Start + i * (config.End - config.Start) / gridSize);
-                return times.MaxBy(config.Intensity);
-            }
-        }
-        private IEnumerable<double> GetEventSample(NonStationaryPoissonProcessConfig config)
-        {
-            var intensity = config.Intensity(FindIntensityMaximumTime(config));
+            var intensity = config.Intensity(StochasticProcess.Extentions.FindIntensityMaximumTime(config));
             var uniform = new Probability.Distribution.Uniform();
             var uniformParam = new Probability.Parameter.Uniform(0, 1);
 
             var stPoissonProc = new StochasticProcess.PointProcess.StationaryPoissonProcess();
             var sample = stPoissonProc.GetEventSamples(new StationaryPoissonProcessConfig(intensity, config.Start, config.End), 1).First();
 
-            return sample.Where(t => config.Intensity(t) / intensity >= uniform.GetSamples(uniformParam, 1).First());
+            var eventTimes = sample.Where(t => config.Intensity(t.EventTime) / intensity >= uniform.GetSamples(uniformParam, 1).First());
+            return eventTimes.Select(t => new UnivariatePointProcessEvent(t.EventTime));
         }
-        public IEnumerable<IEnumerable<double>> GetEventSamples(NonStationaryPoissonProcessConfig config, int size)
+
+        public IEnumerable<IEnumerable<UnivariatePointProcessEvent>> GetEventSamples(NonStationaryPoissonProcessConfig config, int size)
         {
             return Enumerable.Range(0, size).AsParallel().Select(i => GetEventSample(config).ToList());
         }

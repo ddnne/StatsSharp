@@ -6,7 +6,7 @@ using System.Text;
 namespace StatsSharp.Test.StchasticProcess.PointProcessConfig
 {
     [TestClass]
-    public class StationaryPoissonProcessVonfig
+    public class StationaryPoissonProcessConfig
     {
         [TestMethod]
         public void TestConstructor()
