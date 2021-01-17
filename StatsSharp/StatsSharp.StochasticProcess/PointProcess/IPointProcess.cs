@@ -6,7 +6,7 @@ using System.Text;
 namespace StatsSharp.StochasticProcess.PointProcess
 {
     public interface IPointProcess<PointProcessConfig, IntensityType>
-        where PointProcessConfig : IPoissonProcessConfig<IntensityType>
+        where PointProcessConfig : IPointProcessConfig
     {
         public IEnumerable<IEnumerable<double>> GetEventSamples(PointProcessConfig config, int size);
 

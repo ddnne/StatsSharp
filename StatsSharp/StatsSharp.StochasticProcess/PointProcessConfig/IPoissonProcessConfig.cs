@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StatsSharp.StochasticProcess.PointProcessConfig
 {
-    public interface IPoissonProcessConfig<IntensityType> : IPointProcess
+    public interface IPoissonProcessConfig<IntensityType> : IPointProcessConfig
     {
         IntensityType Intensity { get; }
     }
