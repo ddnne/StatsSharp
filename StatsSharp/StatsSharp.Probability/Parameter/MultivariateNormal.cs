@@ -11,7 +11,7 @@ namespace StatsSharp.Probability.Parameter
             MathNet.Numerics.LinearAlgebra.Vector<double>  mean,
             MathNet.Numerics.LinearAlgebra.Matrix<double>  sigma)
         {
-            if (sigma.Svd().S.Minimum() <= 0 || !sigma.IsSymmetric())
+            if (sigma.Svd().S.Minimum() <= 0 || !sigma.IsHermitian())
                 throw new ArgumentException("");
             Mean = mean;
             Sigma = sigma;
