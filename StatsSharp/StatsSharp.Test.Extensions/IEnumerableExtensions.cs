@@ -58,5 +58,29 @@ namespace StatsSharp.Test.Extensions
             var intResult = intList.CumulativeSum();
             CollectionAssert.AreEqual(new List<int>() { 0, 1, 3 }, intResult.ToList());
         }
+
+        [TestMethod]
+        public void ProductTest()
+        {
+            var doubleList = new List<double>() { 1, 2 };
+            var doubleResult = doubleList.Product();
+            Assert.AreEqual(2, doubleResult, 1.0e-10);
+
+            var intList = new List<int>() { 1, 2 };
+            var intResult = intList.Product();
+            Assert.AreEqual(2, intResult, 1.0e-10);
+        }
+
+        [TestMethod]
+        public void CumulativeProductTest()
+        {
+            var doubleList = new List<double>() { 1, 2, 3 };
+            var doubleResult = doubleList.CumulativeProduct();
+            CollectionAssert.AreEqual(new List<double>() { 1, 2, 6 }, doubleResult.ToList());
+
+            var intList = new List<int>() { 1, 2, 5 };
+            var intResult = intList.CumulativeProduct();
+            CollectionAssert.AreEqual(new List<int>() { 1, 2, 10 }, intResult.ToList());
+        }
     }
 }
