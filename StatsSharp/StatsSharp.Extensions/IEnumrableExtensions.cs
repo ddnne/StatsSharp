@@ -78,5 +78,41 @@ namespace StatsSharp.Extensions
                 yield return sum;
             }
         }
+
+        public static double Product(this IEnumerable<double> values)
+        {
+            double ret = 1;
+            foreach (var value in values)
+                ret *= value;
+            return ret;
+        }
+
+        public static int Product(this IEnumerable<int> values)
+        {
+            int ret = 1;
+            foreach (var value in values)
+                ret *= value;
+            return ret;
+        }
+
+        public static IEnumerable<double> CumulativeProduct(this IEnumerable<double> values)
+        {
+            double sum = 1;
+            foreach (var value in values)
+            {
+                sum *= value;
+                yield return sum;
+            }
+        }
+
+        public static IEnumerable<int> CumulativeProduct(this IEnumerable<int> values)
+        {
+            int sum = 1;
+            foreach (var value in values)
+            {
+                sum *= value;
+                yield return sum;
+            }
+        }
     }
 }

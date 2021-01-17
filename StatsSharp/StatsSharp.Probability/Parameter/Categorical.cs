@@ -17,7 +17,7 @@ namespace StatsSharp.Probability.Parameter
 
         public IEnumerable<double> Probabilities { get; }
 
-        public bool Equals([AllowNull] IParameter other)
+        public virtual bool Equals([AllowNull] IParameter other)
         {
             if (other is null)
                 return false;

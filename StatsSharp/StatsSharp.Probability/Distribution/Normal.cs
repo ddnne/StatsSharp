@@ -10,7 +10,7 @@ namespace StatsSharp.Probability.Distribution
         protected override double ProbabilityDensityFunction(double data, Parameter.Normal parameter)
         {
             return Math.Exp(-Math.Pow((data - parameter.Mean) / parameter.StandardDeviation, 2) / 2)
-                / Math.Sqrt(2 * Math.Pow(parameter.StandardDeviation, 2));
+                / Math.Sqrt(2 * Math.PI * Math.Pow(parameter.StandardDeviation, 2));
         }
 
         // Box-Muller's method

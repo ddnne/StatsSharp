@@ -10,6 +10,8 @@ namespace StatsSharp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            
         }
 
         static void CheckRejectionSampling()
@@ -100,6 +102,20 @@ namespace StatsSharp
 
             foreach (var group in groups)
                 Console.WriteLine(group.Key.ToString() + "\t" + group.Count().ToString());
+        }
+
+        static void CheckUnitaryMatrixGenerate()
+        {
+            var size = 10;
+            var uMatrix = new Probability.Distribution.UnitaryMatrixDistribution();
+            var param = new Probability.Parameter.UnitaryMatrixParameter(2);
+
+            var samples = uMatrix.GetSamples(param, size);
+            foreach (var sample in samples)
+            {
+                var prod = sample.Conjugate().Transpose() * sample;
+                Console.WriteLine(prod.ToString());
+            }
         }
     }
 }
