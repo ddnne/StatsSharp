@@ -11,7 +11,7 @@ namespace StatsSharp.StochasticProcess.PointProcess
 {
     public class HawkesProcess : IPointProcess<HawkesProcessConfig, UnivariatePointProcessEvent, Func<double, IEnumerable<double>, double>>
     {
-        public IEnumerable<UnivariatePointProcessEvent> GetEventSample(HawkesProcessConfig config)
+        private IEnumerable<UnivariatePointProcessEvent> GetEventSample(HawkesProcessConfig config)
         {
             var events = new List<UnivariatePointProcessEvent>();
             var intensity = config.Intensity(Extentions.FindIntensityMaximumTime(config, events), events);

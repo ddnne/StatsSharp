@@ -11,7 +11,7 @@ namespace StatsSharp.StochasticProcess.PointProcess
 {
     public class MultivariateHawkesProcess : IPointProcess<MultivariateHawkesProcessConfig, MultivariatePointProcessEvent, Func<double, IEnumerable<double>, double>>
     {
-        public IEnumerable<MultivariatePointProcessEvent> GetEventSample(MultivariateHawkesProcessConfig config)
+        private IEnumerable<MultivariatePointProcessEvent> GetEventSample(MultivariateHawkesProcessConfig config)
         {
             var events = new List<MultivariatePointProcessEvent>();
             var maxIntensity = config.Intensities(Extentions.FindIntensityMaximumTime(config, events), events).Sum();
