@@ -1,6 +1,7 @@
 ﻿using MathNet.Numerics.Optimization;
 using StatsSharp.Extensions;
 using StatsSharp.StochasticProcess.PointProcessConfig;
+using StatsSharp.StochasticProcess.PointProcessEvent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,12 @@ using System.Text;
 
 namespace StatsSharp.StochasticProcess.PointProcess
 {
-    public class HawkesProcess : IPointProcess<HawkesProcessConfig, Func<double, IEnumerable<double>, double>>
+    public class HawkesProcess : IPointProcess<HawkesProcessConfig, UnivariatePointProcessEvent, Func<double, IEnumerable<double>, double>>
     {
-        public IEnumerable<double> GetEventSample(HawkesProcessConfig config)
+        public IEnumerable<UnivariatePointProcessEvent> GetEventSample(HawkesProcessConfig config)
         {
-            var pastEventTime = new List<double>();
-            var intensity = config.Intensity(StochasticProcess.Extentions.FindIntensityMaximumTime(config, pastEventTime), pastEventTime);
+            var events = new List<UnivariatePointProcessEvent>();
+            var intensity = config.Intensity(Extentions.FindIntensityMaximumTime(config, events), events);
             var t = config.Start;
             var proposalTime = config.Start;
 
@@ -27,18 +28,20 @@ namespace StatsSharp.StochasticProcess.PointProcess
                     break;
                 var expParam = new Probability.Parameter.Exponential(1.0 / intensity);
                 proposalTime += exp.GetSamples(expParam, 1).First();
-                if (config.Intensity(t, pastEventTime) / intensity >= uniform.GetSamples(uniformParam, 1).First())
+                if (config.Intensity(t, events) / intensity >= uniform.GetSamples(uniformParam, 1).First())
                 {
                     t = proposalTime;
-                    pastEventTime.Add(t);
-                    intensity = config.Intensity(StochasticProcess.Extentions.FindIntensityMaximumTime(new HawkesProcessConfig(config.BackgroundRate, config.Kernel, t, config.End), pastEventTime), pastEventTime);
-                    yield return t;
-                }
+                    events.Add(new UnivariatePointProcessEvent(t));
 
+                    var maxIntensityTime = Extentions.FindIntensityMaximumTime(config, events);
+                    intensity = config.Intensity(maxIntensityTime, events);
+                }
             }
+
+            return events;
         }
 
-        public IEnumerable<IEnumerable<double>> GetEventSamples(HawkesProcessConfig config, int size)
+        public IEnumerable<IEnumerable<UnivariatePointProcessEvent>> GetEventSamples(HawkesProcessConfig config, int size)
         {
             return Enumerable.Range(0, size).Select(i => GetEventSample(config));
         }

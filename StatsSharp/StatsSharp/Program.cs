@@ -54,7 +54,7 @@ namespace StatsSharp
             var ppTimeSamples = pp.GetEventSamples(ppConfig, size);
             Console.WriteLine(ppTimeSamples.Select(sample => sample.Count()).Average());
             Console.WriteLine(ppTimeSamples.Select(sample => sample.Count()).StandardDeviation());
-            var ppTimeDiffs = ppTimeSamples.Select(samples => samples.DiffFromPreviousElement());
+            var ppTimeDiffs = ppTimeSamples.Select(samples => samples.Select(t=> t.EventTime).DiffFromPreviousElement());
 
             var ppConcated = new List<double>().Select(x => x);
             foreach (var tmp in ppTimeDiffs)
@@ -79,7 +79,7 @@ namespace StatsSharp
             var nppTimeSamplesCount = nppTimeSamples.Select(t => t.ToList().Count()).ToList();
             Console.WriteLine(nppTimeSamplesCount.Average());
             Console.WriteLine(nppTimeSamplesCount.StandardDeviation());
-            var nppTimeDiffs = nppTimeSamples.Select(samples => samples.DiffFromPreviousElement());
+            var nppTimeDiffs = nppTimeSamples.Select(samples => samples.Select(t => t.EventTime).DiffFromPreviousElement());
 
             var nppConcated = new List<double>().Select(x => x);
             foreach (var tmp in nppTimeDiffs)

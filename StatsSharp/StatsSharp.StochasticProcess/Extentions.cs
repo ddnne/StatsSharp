@@ -2,6 +2,7 @@
 using StatsSharp.Extensions;
 using StatsSharp.StochasticProcess.PointProcess;
 using StatsSharp.StochasticProcess.PointProcessConfig;
+using StatsSharp.StochasticProcess.PointProcessEvent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,12 @@ namespace StatsSharp.StochasticProcess
             }
         }
 
-        internal static double FindIntensityMaximumTime(HawkesProcessConfig config, IEnumerable<double> pastEventTime, int gridSize = 10000)
+        internal static double FindIntensityMaximumTime(HawkesProcessConfig config, IEnumerable<UnivariatePointProcessEvent> events, int gridSize = 10000)
         {
             try
             {
                 var algorithm = new GoldenSectionMinimizer(1e-5, 1000);
-                Func<double, double> f1 = (double t) => -config.Intensity(t, pastEventTime);
+                Func<double, double> f1 = (double t) => -config.Intensity(t, events);
                 var obj = ObjectiveFunction.ScalarValue(f1);
                 var r1 = GoldenSectionMinimizer.Minimum(obj, config.Start, config.End);
                 return r1.MinimizingPoint;
@@ -41,16 +42,16 @@ namespace StatsSharp.StochasticProcess
             catch (OptimizationException e)
             {
                 var times = Enumerable.Range(0, gridSize + 1).Select(i => config.Start + i * (config.End - config.Start) / gridSize);
-                return times.MaxBy(t => config.Intensity(t, pastEventTime));
+                return times.MaxBy(t => config.Intensity(t, events));
             }
         }
 
-        internal static double FindIntensityMaximumTime(MultivariateHawkesProcessConfig config, IEnumerable<double> pastEventTime, IEnumerable<int> pastEventId, int gridSize = 10000)
+        internal static double FindIntensityMaximumTime(MultivariateHawkesProcessConfig config, IEnumerable<MultivariatePointProcessEvent> events, int gridSize = 10000)
         {
             try
             {
                 var algorithm = new GoldenSectionMinimizer(1e-5, 1000);
-                Func<double, double> f1 = (double t) => -config.Intensities(t, pastEventTime, pastEventId).Sum();
+                Func<double, double> f1 = (double t) => -config.Intensities(t, events).Sum();
                 var obj = ObjectiveFunction.ScalarValue(f1);
                 var r1 = GoldenSectionMinimizer.Minimum(obj, config.Start, config.End);
                 return r1.MinimizingPoint;
@@ -58,7 +59,7 @@ namespace StatsSharp.StochasticProcess
             catch (OptimizationException e)
             {
                 var times = Enumerable.Range(0, gridSize + 1).Select(i => config.Start + i * (config.End - config.Start) / gridSize);
-                return times.MaxBy(t => config.Intensities(t, pastEventTime, pastEventId).Sum());
+                return times.MaxBy(t => config.Intensities(t, events).Sum());
             }
         }
 

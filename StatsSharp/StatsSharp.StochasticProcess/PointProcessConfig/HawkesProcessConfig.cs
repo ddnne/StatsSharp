@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StatsSharp.StochasticProcess.PointProcessEvent;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace StatsSharp.StochasticProcess.PointProcessConfig
             End = end;
         }
 
-        public double Intensity(double t, IEnumerable<double> pastEventTime)
+        public double Intensity(double t, IEnumerable<UnivariatePointProcessEvent> events)
         {
-            return BackgroundRate(t) + pastEventTime.Where(ti => t >= ti).Select(ti => Kernel(t - ti)).Sum();
+            return BackgroundRate(t) + events.Where(ti => t >= ti.EventTime).Select(ti => Kernel(t - ti.EventTime)).Sum();
         }
 
         internal Func<double, double> BackgroundRate { get; }

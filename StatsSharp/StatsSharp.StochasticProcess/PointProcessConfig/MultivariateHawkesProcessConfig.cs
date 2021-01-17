@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StatsSharp.StochasticProcess.PointProcessEvent;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,14 +25,13 @@ namespace StatsSharp.StochasticProcess.PointProcessConfig
             Kind = backgroundRate.Count();
         }
 
-        public IEnumerable<double> Intensities(double t, IEnumerable<double> pastEventTime, IEnumerable<int> pastEventId)
+        public IEnumerable<double> Intensities(double t, IEnumerable<MultivariatePointProcessEvent> events)
         {
-            var eventInfo = pastEventId.Zip(pastEventTime, (eventId, eventTime) => new { eventId, eventTime });
             return Enumerable.Range(0, Kind).Select(intensityId =>
             {
                 var bgRate = BackgroundRates.ElementAt(intensityId);
                 var kernels = Kernels.ElementAt(intensityId);
-                return bgRate(t) + eventInfo.Where(ev => ev.eventTime <= t).Select(ev => kernels.ElementAt(ev.eventId)(t - ev.eventTime)).Sum();
+                return bgRate(t) + events.Where(ev => ev.EventTime <= t).Select(ev => kernels.ElementAt(ev.EventKind)(t - ev.EventTime)).Sum();
             });
         }
 

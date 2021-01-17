@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StatsSharp.StochasticProcess.PointProcessEvent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,16 +25,15 @@ namespace StatsSharp.Test.StchasticProcess.PointProcessConfig
             var dim = bgRate.Count();
             var actEventIndex = 0;
             var eventTime = 0.5;
-            var pastEventId = new List<int>() { actEventIndex };
-            var pastEventTime = new List<double>() { eventTime };
+            var events = new List<MultivariatePointProcessEvent>() { new MultivariatePointProcessEvent(actEventIndex, eventTime) };
             Func<double, IEnumerable<double>> intensity = (double t) =>
             {
                 if (t < eventTime)
                     return bgRate.Select(r => r(t));
                 else
                 {
-                    return Enumerable.Range(0, dim).Select(i => bgRate.ElementAt(i)(t) + pastEventId.Zip(pastEventTime, (id, time) => new { id, time }).Select(p => 
-                    kernel.ElementAt(i).ElementAt(p.id)(t - p.time)).Sum());
+                    return Enumerable.Range(0, dim).Select(i => bgRate.ElementAt(i)(t) + events.Select(p =>
+                    kernel.ElementAt(i).ElementAt(p.EventKind)(t - p.EventTime)).Sum());
                 }
             };
 
@@ -45,7 +45,7 @@ namespace StatsSharp.Test.StchasticProcess.PointProcessConfig
             foreach (double t in Enumerable.Range(0, N).Select(x => start + (end - start) * x / (double)N))
             {
                 var expected = intensity(t);
-                var actual = config.Intensities(t, pastEventTime, pastEventId);
+                var actual = config.Intensities(t, events);
                 foreach (var pair in expected.Zip(actual, (exp, act) => new { exp, act }))
                     Assert.AreEqual(pair.exp, pair.act, 1.0e-10);
             }
