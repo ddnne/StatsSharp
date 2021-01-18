@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
-    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics\StatsSharp.Statistics.csproj" />
   </ItemGroup>
 
 </Project>

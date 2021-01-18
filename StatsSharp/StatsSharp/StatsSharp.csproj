@@ -8,7 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
-    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest\StatsSharp.Statistics.StatisticalTest.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics\StatsSharp.Statistics.csproj" />
     <ProjectReference Include="..\StatsSharp.StochasticProcess\StatsSharp.StochasticProcess.csproj" />
   </ItemGroup>
 

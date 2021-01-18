@@ -6,14 +6,14 @@ using System.Text;
 namespace StatsSharp.Test.Probability.Parameter
 {
     [TestClass]
-    class UnitaryMatrixParameter
+    class RandomUnitaryMatrix
     {
         [TestMethod]
         public void TestConstructor()
         {
             var size = 1;
 
-            var uParameter = new StatsSharp.Probability.Parameter.UnitaryMatrixParameter(size);
+            var uParameter = new StatsSharp.Probability.Parameter.RandomUnitaryMatrix(size);
             Assert.AreEqual(size, uParameter.MatrixSize, 1.0e-10);
         }
 
@@ -22,7 +22,7 @@ namespace StatsSharp.Test.Probability.Parameter
         public void TestMinusAverage()
         {
             var size = -1;
-            var expParameter = new StatsSharp.Probability.Parameter.UnitaryMatrixParameter(size);
+            var expParameter = new StatsSharp.Probability.Parameter.RandomUnitaryMatrix(size);
         }
     }
 }

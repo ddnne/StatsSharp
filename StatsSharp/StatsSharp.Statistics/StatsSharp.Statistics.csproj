@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
   </ItemGroup>
 

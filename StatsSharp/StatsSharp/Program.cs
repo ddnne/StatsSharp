@@ -11,7 +11,8 @@ namespace StatsSharp
         {
             Console.WriteLine("Hello World!");
 
-            
+            CheckUnitaryMatrixGenerate();
+            CheckOrthogonalMatrixGenerate();
         }
 
         static void CheckRejectionSampling()
@@ -107,8 +108,22 @@ namespace StatsSharp
         static void CheckUnitaryMatrixGenerate()
         {
             var size = 10;
-            var uMatrix = new Probability.Distribution.UnitaryMatrixDistribution();
-            var param = new Probability.Parameter.UnitaryMatrixParameter(2);
+            var uMatrix = new Probability.Distribution.RandomUnitaryMatrix();
+            var param = new Probability.Parameter.RandomUnitaryMatrix(2);
+
+            var samples = uMatrix.GetSamples(param, size);
+            foreach (var sample in samples)
+            {
+                var prod = sample.Conjugate().Transpose() * sample;
+                Console.WriteLine(prod.ToString());
+            }
+        }
+
+        static void CheckOrthogonalMatrixGenerate()
+        {
+            var size = 10;
+            var uMatrix = new Probability.Distribution.RandomOrthogonalMatrix();
+            var param = new Probability.Parameter.RandomOrthogonalMatrix(2);
 
             var samples = uMatrix.GetSamples(param, size);
             foreach (var sample in samples)
