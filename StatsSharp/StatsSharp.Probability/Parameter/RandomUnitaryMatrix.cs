@@ -6,9 +6,9 @@ using System.Text;
 namespace StatsSharp.Probability.Parameter
 {
     // https://arxiv.org/abs/math-ph/0609050
-    public class UnitaryMatrixParameter : IParameter
+    public class RandomUnitaryMatrix : IParameter
     {
-        public UnitaryMatrixParameter(int matrixSize)
+        public RandomUnitaryMatrix(int matrixSize)
         {
             if (matrixSize <= 0)
                 throw new ArgumentException();
@@ -20,9 +20,9 @@ namespace StatsSharp.Probability.Parameter
 
         public bool Equals([AllowNull] IParameter other)
         {
-            if (other.GetType() != typeof(UnitaryMatrixParameter))
+            if (other.GetType() != typeof(RandomUnitaryMatrix))
                 return false;
-            else if (this.MatrixSize != ((UnitaryMatrixParameter)other).MatrixSize)
+            else if (this.MatrixSize != ((RandomUnitaryMatrix)other).MatrixSize)
                 return false;
             else
                 return true;
