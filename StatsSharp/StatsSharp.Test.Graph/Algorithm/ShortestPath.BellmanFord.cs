@@ -10,10 +10,10 @@ namespace StatsSharp.Test.Graph.Algorithm
     public partial class ShortestPath
     {
         [TestClass]
-        public class Result
+        public class BellmanFord
         {
             [TestMethod]
-            public void TestConstructor()
+            public void TestBellmanFord()
             {
                 var source = new StatsSharp.Graph.Node.Node("Source");
                 var target = new StatsSharp.Graph.Node.Node("Target");
