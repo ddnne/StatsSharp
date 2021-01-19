@@ -8,7 +8,7 @@ using System.Text;
 
 namespace StatsSharp.Graph.Extensions
 {
-    public static class ExtensionsComputeDegree
+    public static class ComputeDegreeMethod
     {
         public static int ComputeDegree(this Graph.Graph graph, INode targetNode)
         {

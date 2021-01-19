@@ -8,7 +8,7 @@ using System.Text;
 
 namespace StatsSharp.Graph.Extensions
 {
-    public static class ExtensionsComputeAdjointMatrix
+    public static class ComputeAdjointMatrixMethod
     {
         public static MathNet.Numerics.LinearAlgebra.Matrix<double> ComputeAdjointMatrix(this Graph.Graph graph)
         {

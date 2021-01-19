@@ -11,7 +11,22 @@ namespace StatsSharp.Graph.Algorithm
 
     public partial class ShortestPath
     {
-        public static Result BellmanFord(Graph.Graph graph, INode source)
+        public static Result BellmanFord(IGraph graph, INode node)
+        {
+            if (graph is Graph.Graph)
+                return BellmanFord((Graph.Graph)graph, node);
+            else if (graph is WeightedGraph)
+                return BellmanFord((WeightedGraph)graph, node);
+            else if (graph is DirectedGraph)
+                return BellmanFord((DirectedGraph)graph, node);
+            else if (graph is WeightedDirectedGraph)
+                return BellmanFord((WeightedDirectedGraph)graph, node);
+
+            else
+                throw new NotImplementedException();
+
+        }
+        private static Result BellmanFord(Graph.Graph graph, INode source)
         {
             var weightedDiGraph = new WeightedDirectedGraph(
                 graph.Edges.Select(edge => new WeightedEdge(edge.From, edge.To, 1)).Concat(
@@ -20,7 +35,7 @@ namespace StatsSharp.Graph.Algorithm
             return BellmanFord(weightedDiGraph, source);
         }
 
-        public static Result BellmanFord(WeightedGraph graph, INode source)
+        private static Result BellmanFord(WeightedGraph graph, INode source)
         {
             var weightedDiGraph = new WeightedDirectedGraph(
                 graph.Edges.Select(edge => new WeightedEdge(edge.From, edge.To, ((WeightedEdge)edge).Weight))
@@ -29,8 +44,7 @@ namespace StatsSharp.Graph.Algorithm
             return BellmanFord(weightedDiGraph, source);
         }
 
-
-        public static Result BellmanFord(DirectedGraph graph, INode source)
+        private static Result BellmanFord(DirectedGraph graph, INode source)
         {
             var weightedDiGraph = new WeightedDirectedGraph(
                 graph.Edges.Select(edge => new WeightedEdge(edge.From, edge.To, 1)),
@@ -38,7 +52,7 @@ namespace StatsSharp.Graph.Algorithm
             return BellmanFord(weightedDiGraph, source);
         }
 
-        public static Result BellmanFord(WeightedDirectedGraph graph, INode source)
+        private static Result BellmanFord(WeightedDirectedGraph graph, INode source)
         {
             if (!graph.Edges.Any() || !graph.Nodes.Any())
                 throw new Exception("Graph has no edges or no nodes");
