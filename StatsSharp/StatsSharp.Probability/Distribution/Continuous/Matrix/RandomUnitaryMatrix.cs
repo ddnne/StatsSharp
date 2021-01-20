@@ -9,22 +9,22 @@ using System.Text;
 namespace StatsSharp.Probability.Distribution.Continuous.Matrix
 {
     // https://arxiv.org/abs/math-ph/0609050
-    public class RandomUnitaryMatrix : ADistribution<Matrix<Complex>, Parameter.RandomUnitaryMatrix>
+    public class RandomUnitaryMatrix : ADistribution<Matrix<Complex>, Parameter.Continuous.Matrix.RandomUnitaryMatrix>
     {
-        public override Func<Matrix<Complex>, double> GetCumulativeDistributionFunction(Parameter.RandomUnitaryMatrix parameter)
+        public override Func<Matrix<Complex>, double> GetCumulativeDistributionFunction(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
         {
             throw new NotSupportedException();
         }
 
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.RandomUnitaryMatrix parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
         {
             throw new NotImplementedException();
         }
 
-        private Matrix<Complex> GetSample(Parameter.RandomUnitaryMatrix parameter)
+        private Matrix<Complex> GetSample(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
         {
             var normal = new Distribution.Continuous.Scalar.Normal();
-            var normalParam = new Parameter.Normal(0, 1);
+            var normalParam = new Parameter.Continuous.Scalar.Normal(0, 1);
 
             var matrix = MathNet.Numerics.LinearAlgebra.Complex.Matrix.Build
                 .Dense(parameter.MatrixSize, parameter.MatrixSize, (i, j) => new Complex(normal.GetSamples(normalParam,1).First(), normal.GetSamples(normalParam, 1).First()));
@@ -37,12 +37,12 @@ namespace StatsSharp.Probability.Distribution.Continuous.Matrix
 
         }
 
-        public override IEnumerable<Matrix<Complex>> GetSamples(Parameter.RandomUnitaryMatrix parameter, int size)
+        public override IEnumerable<Matrix<Complex>> GetSamples(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter, int size)
         {
             return Enumerable.Range(0, size).Select(i => GetSample(parameter));
         }
 
-        protected override double ProbabilityDensityFunction(Matrix<Complex> data, Parameter.RandomUnitaryMatrix parameter)
+        protected override double ProbabilityDensityFunction(Matrix<Complex> data, Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
         {
             throw new NotImplementedException();
         }

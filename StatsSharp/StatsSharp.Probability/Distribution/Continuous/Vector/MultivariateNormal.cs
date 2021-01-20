@@ -5,21 +5,21 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Vector
 {
-    public class MultivariateNormal : ADistribution<MathNet.Numerics.LinearAlgebra.Vector<double>, Parameter.MultivariateNormal>
+    public class MultivariateNormal : ADistribution<MathNet.Numerics.LinearAlgebra.Vector<double>, Parameter.Continuous.Vector.MultivariateNormal>
     {
-        protected override double ProbabilityDensityFunction(MathNet.Numerics.LinearAlgebra.Vector<double> data, Parameter.MultivariateNormal parameter)
+        protected override double ProbabilityDensityFunction(MathNet.Numerics.LinearAlgebra.Vector<double> data, Parameter.Continuous.Vector.MultivariateNormal parameter)
         {
             var dim = parameter.Mean.Count();
             return Math.Exp(-parameter.SigmaInverse.Multiply(data - parameter.Mean).DotProduct(data - parameter.Mean) / 2.0)
                 / Math.Sqrt(Math.Pow(2 * Math.PI, dim) * parameter.SigmaDeterminant);
         }
 
-        public override IEnumerable<MathNet.Numerics.LinearAlgebra.Vector<double>> GetSamples(Parameter.MultivariateNormal parameter, int size)
+        public override IEnumerable<MathNet.Numerics.LinearAlgebra.Vector<double>> GetSamples(Parameter.Continuous.Vector.MultivariateNormal parameter, int size)
         {
             var dim = parameter.Mean.Count();
             var choleskyFactor = parameter.Sigma.Cholesky().Factor;
             var normal = new Distribution.Continuous.Scalar.Normal();
-            var normalParam = new Parameter.Normal(0, 1);
+            var normalParam = new Parameter.Continuous.Scalar.Normal(0, 1);
 
             return Enumerable.Range(0, size).Select(i =>
             {
@@ -28,12 +28,12 @@ namespace StatsSharp.Probability.Distribution.Continuous.Vector
             });
         }
 
-        public override Func<MathNet.Numerics.LinearAlgebra.Vector<double>, double> GetCumulativeDistributionFunction(Parameter.MultivariateNormal parameter)
+        public override Func<MathNet.Numerics.LinearAlgebra.Vector<double>, double> GetCumulativeDistributionFunction(Parameter.Continuous.Vector.MultivariateNormal parameter)
         {
             throw new NotSupportedException();
         }
 
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.MultivariateNormal parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Vector.MultivariateNormal parameter)
         {
             return this.ProbabilityDensityFunction(parameter.Mean, parameter);
         }

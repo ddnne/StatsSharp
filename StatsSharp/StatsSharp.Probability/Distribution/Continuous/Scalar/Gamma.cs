@@ -6,14 +6,14 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Gamma : ADistribution<double, Parameter.Gamma>
+    public class Gamma : ADistribution<double, Parameter.Continuous.Scalar.Gamma>
     {
-        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Gamma parameter)
+        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Continuous.Scalar.Gamma parameter)
         {
             return (double x) => SpecialFunctions.GammaLowerIncomplete(parameter.K, x / parameter.Theta) / SpecialFunctions.Gamma(parameter.K);
         }
 
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.Gamma parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Scalar.Gamma parameter)
         {
             if (parameter.K >= 1)
                 return this.ProbabilityDensityFunction((parameter.K - 1) * parameter.Theta, parameter);
@@ -21,14 +21,14 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
                 return Double.PositiveInfinity;
         }
 
-        public override IEnumerable<double> GetSamples(Parameter.Gamma parameter, int size)
+        public override IEnumerable<double> GetSamples(Parameter.Continuous.Scalar.Gamma parameter, int size)
         {
             int intK = (int)Math.Floor(parameter.K);
             double decK = parameter.K - intK;
             var exp = new Distribution.Continuous.Scalar.Exponential();
-            var expParam = new Parameter.Exponential(parameter.Theta);
+            var expParam = new Parameter.Continuous.Scalar.Exponential(parameter.Theta);
             var uniform = new Distribution.Continuous.Scalar.Uniform();
-            var uniformParam = new Parameter.Uniform(0, 1);
+            var uniformParam = new Parameter.Continuous.Scalar.Uniform(0, 1);
 
             return Enumerable.Range(0, size).Select(i =>
             {
@@ -56,7 +56,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             });
         }
 
-        protected override double ProbabilityDensityFunction(double data, Parameter.Gamma parameter)
+        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Gamma parameter)
         {
             return 1.0 / (SpecialFunctions.Gamma(parameter.K) * Math.Pow(parameter.Theta, parameter.K)) *
                 Math.Pow(data, parameter.K - 1) * Math.Exp(-data / parameter.Theta);

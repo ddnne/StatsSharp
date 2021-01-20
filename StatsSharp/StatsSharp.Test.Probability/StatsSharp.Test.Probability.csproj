@@ -17,4 +17,8 @@
     <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Distribution\Continuous\Matrix\" />
+  </ItemGroup>
+
 </Project>

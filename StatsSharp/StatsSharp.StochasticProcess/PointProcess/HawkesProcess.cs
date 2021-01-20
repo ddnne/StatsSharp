@@ -19,14 +19,14 @@ namespace StatsSharp.StochasticProcess.PointProcess
             var proposalTime = config.Start;
 
             var uniform = new Probability.Distribution.Continuous.Scalar.Uniform();
-            var uniformParam = new Probability.Parameter.Uniform(0, 1);
+            var uniformParam = new Probability.Parameter.Continuous.Scalar.Uniform(0, 1);
             var exp = new Probability.Distribution.Continuous.Scalar.Exponential();
 
             while (true)
             {
                 if (proposalTime > config.End)
                     break;
-                var expParam = new Probability.Parameter.Exponential(1.0 / intensity);
+                var expParam = new Probability.Parameter.Continuous.Scalar.Exponential(1.0 / intensity);
                 proposalTime += exp.GetSamples(expParam, 1).First();
                 if (config.Intensity(t, events) / intensity >= uniform.GetSamples(uniformParam, 1).First())
                 {

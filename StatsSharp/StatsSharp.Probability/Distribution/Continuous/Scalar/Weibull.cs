@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Weibull : ADistribution<double, Parameter.Weibull>
+    public class Weibull : ADistribution<double, Parameter.Continuous.Scalar.Weibull>
     {
-        protected override double ProbabilityDensityFunction(double data, Parameter.Weibull parameter)
+        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Weibull parameter)
         {
             if (data < 0)
                 return 0;
@@ -16,14 +16,14 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
                     * Math.Exp(-Math.Pow(data / parameter.Scale, parameter.Shape));
         }
 
-        public override IEnumerable<double> GetSamples(Parameter.Weibull parameter, int size)
+        public override IEnumerable<double> GetSamples(Parameter.Continuous.Scalar.Weibull parameter, int size)
         {
             var uniform = new Distribution.Continuous.Scalar.Uniform();
-            var uniformParam = new Probability.Parameter.Uniform(0, 1);
+            var uniformParam = new Probability.Parameter.Continuous.Scalar.Uniform(0, 1);
             return uniform.GetSamples(uniformParam, size).Select(u => parameter.Scale * Math.Pow(-Math.Log(u), 1 / parameter.Shape));
         }
 
-        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Weibull parameter)
+        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Continuous.Scalar.Weibull parameter)
         {
             return (double data) =>
             {
@@ -34,7 +34,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             };
         }
 
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.Weibull parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Scalar.Weibull parameter)
         {
             if (parameter.Shape > 1)
                 return ProbabilityDensityFunction(parameter.Scale * Math.Pow((parameter.Shape - 1) / parameter.Shape, 1.0 / parameter.Shape), parameter);

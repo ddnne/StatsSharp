@@ -1,4 +1,6 @@
 ﻿using StatsSharp.Extensions;
+using StatsSharp.Graph.Edge;
+using StatsSharp.Graph.Node;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +13,17 @@ namespace StatsSharp
         {
             Console.WriteLine("Hello World!");
 
-            CheckUnitaryMatrixGenerate();
-            CheckOrthogonalMatrixGenerate();
+            CheckBernoulliGraph();
         }
 
         static void CheckRejectionSampling()
         {
             var size = 10000;
             var rejectionSamplerConfig = new Probability.SamplerConfig.RejectionSamplerConfig
-                <double, Probability.Parameter.Exponential, Probability.Parameter.Exponential>(new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Exponential(2),
-                new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Exponential(4), size, 2);
-            var sampler = new Probability.Sampler.RejectionSampler<double, Probability.Parameter.Exponential, Probability.Parameter.Exponential>();
+                <double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>
+                (new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(2),
+                new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(4), size, 2);
+            var sampler = new Probability.Sampler.RejectionSampler<double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>();
             var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig);
 
             var nullHypothesis = new Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(sampleFromSampler, 0);
@@ -33,13 +35,13 @@ namespace StatsSharp
             Console.WriteLine(sampleFromSampler.StandardDeviation());
 
             var gamma = new Probability.Distribution.Continuous.Scalar.Gamma();
-            var gammaParam = new Probability.Parameter.Gamma(2.5, 2);
+            var gammaParam = new Probability.Parameter.Continuous.Scalar.Gamma(2.5, 2);
             var gammaSamples = gamma.GetSamples(gammaParam, size);
             Console.WriteLine(gammaSamples.Average());
             Console.WriteLine(gammaSamples.StandardDeviation());
 
             var poisson = new Probability.Distribution.Discrete.Univariate.Poisson();
-            var poissonParam = new Probability.Parameter.Poisson(1.5);
+            var poissonParam = new Probability.Parameter.Discrete.Univariate.Poisson(1.5);
             var poissonSamples = poisson.GetSamples(poissonParam, size);
             Console.WriteLine(poissonSamples.Average());
             Console.WriteLine(Math.Pow(poissonSamples.StandardDeviation(), 2));
@@ -57,7 +59,7 @@ namespace StatsSharp
             var ppTimeSamples = pp.GetEventSamples(ppConfig, size);
             Console.WriteLine(ppTimeSamples.Select(sample => sample.Count()).Average());
             Console.WriteLine(ppTimeSamples.Select(sample => sample.Count()).StandardDeviation());
-            var ppTimeDiffs = ppTimeSamples.Select(samples => samples.Select(t=> t.EventTime).DiffFromPreviousElement());
+            var ppTimeDiffs = ppTimeSamples.Select(samples => samples.Select(t => t.EventTime).DiffFromPreviousElement());
 
             var ppConcated = new List<double>().Select(x => x);
             foreach (var tmp in ppTimeDiffs)
@@ -96,7 +98,7 @@ namespace StatsSharp
             int size = 10000;
             var probs = new List<double>() { 0.1, 0.3, 0.5, 0.1 };
             var cat = new Probability.Distribution.Discrete.Univariate.Categorical();
-            var catParam = new Probability.Parameter.Categorical(probs);
+            var catParam = new Probability.Parameter.Discrete.Univariate.Categorical(probs);
             var samples = cat.GetSamples(catParam, size);
 
             var groups = samples.GroupBy(i => i);
@@ -109,7 +111,7 @@ namespace StatsSharp
         {
             var size = 10;
             var uMatrix = new Probability.Distribution.Continuous.Matrix.RandomUnitaryMatrix();
-            var param = new Probability.Parameter.RandomUnitaryMatrix(2);
+            var param = new Probability.Parameter.Continuous.Matrix.RandomUnitaryMatrix(2);
 
             var samples = uMatrix.GetSamples(param, size);
             foreach (var sample in samples)
@@ -123,7 +125,7 @@ namespace StatsSharp
         {
             var size = 10;
             var uMatrix = new Probability.Distribution.Continuous.Matrix.RandomOrthogonalMatrix();
-            var param = new Probability.Parameter.RandomOrthogonalMatrix(2);
+            var param = new Probability.Parameter.Continuous.Matrix.RandomOrthogonalMatrix(2);
 
             var samples = uMatrix.GetSamples(param, size);
             foreach (var sample in samples)
@@ -131,6 +133,34 @@ namespace StatsSharp
                 var prod = sample.Conjugate().Transpose() * sample;
                 Console.WriteLine(prod.ToString());
             }
+        }
+
+        static void CheckBernoulliGraph()
+        {
+            var bernoulliGraph = new Probability.Distribution.Discrete.Graph.BernoulliGraph();
+
+            var size = 10000;
+            var nodeNum = 10;
+            var p = 0.9;
+            var nodes = Enumerable.Range(0, nodeNum).Select(i => new Node(i.ToString())).ToList();
+            //var edges = new List<Edge>();
+            //for (int i = 0; i < nodeNum; ++i)
+            //{
+            //    for (int j = i + 1; j < nodeNum; ++j)
+            //    {
+            //        edges.Add(new Edge(nodes[i], nodes[j]));
+            //    }
+            //}
+            var edges = nodes.Combination(2).Select(comb => new Edge(comb.First(), comb.Last()));
+            var bernoulliGraphParameter = new Probability.Parameter.Discrete.Graph.BernoulliGraph(p, edges, nodes);
+
+            var samples = bernoulliGraph.GetSamples(bernoulliGraphParameter, size);
+            var edgeNums = samples.Select(sample => sample.Edges.Count());
+            var averageEdgeNum = edgeNums.Average();
+            var varEdgeNum = edgeNums.Variance();
+
+            Console.WriteLine(averageEdgeNum);
+            Console.WriteLine(varEdgeNum);
         }
     }
 }

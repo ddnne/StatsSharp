@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Uniform : ADistribution<double, Parameter.Uniform>
+    public class Uniform : ADistribution<double, Parameter.Continuous.Scalar.Uniform>
     {
-        protected override double ProbabilityDensityFunction(double data, Parameter.Uniform parameter)
+        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Uniform parameter)
         {
             if (data > parameter.End || data < parameter.Start)
                 return 0;
@@ -15,13 +15,13 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
                 return 1.0 / (parameter.End - parameter.Start);
         }
 
-        public override IEnumerable<double> GetSamples(Parameter.Uniform parameter, int size)
+        public override IEnumerable<double> GetSamples(Parameter.Continuous.Scalar.Uniform parameter, int size)
         {
             var rand = new Random();
             return Enumerable.Range(0, size).Select(x => parameter.Start + rand.NextDouble() * (parameter.End - parameter.Start));
         }
 
-        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Uniform parameter)
+        public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Continuous.Scalar.Uniform parameter)
         {
             return (double data) =>
             {
@@ -34,7 +34,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             };
         }
 
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.Uniform parameter)
+        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Scalar.Uniform parameter)
         {
             return 1.0 / (parameter.End - parameter.Start);
         }

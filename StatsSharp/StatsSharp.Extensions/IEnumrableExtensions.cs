@@ -114,5 +114,49 @@ namespace StatsSharp.Extensions
                 yield return sum;
             }
         }
+
+        public static IEnumerable<IEnumerable<T>> Combination<T>(this IEnumerable<T> values, int r)
+        {
+            var size = values.Count();
+            if (size < r)
+                throw new ArgumentException();
+            for (int i = 0; i < size - r + 1; ++i)
+            {
+                var ret = new List<T>();
+                ret.Add(values.ElementAt(i));
+                if (r != 1)
+                {
+                    var combs = values.Skip(i + 1).Combination(r - 1);
+                    foreach (var comb in combs)
+                    {
+                        yield return ret.Concat(comb);
+                    }
+                }
+                else
+                    yield return ret;
+            }
+        }
+
+        public static IEnumerable<IEnumerable<T>> Permutation<T>(this IEnumerable<T> values, int r)
+        {
+            var size = values.Count();
+            if (size < r)
+                throw new ArgumentException();
+            for (int i = 0; i < size - r; ++i)
+            {
+                var ret = new List<T>();
+                ret.Add(values.ElementAt(i));
+                if (r != 1)
+                {
+                    var combs = values.Take(i).Concat(values.Skip(i + 1)).Permutation(r - 1);
+                    foreach (var comb in combs)
+                    {
+                        yield return ret.Concat(comb);
+                    }
+                }
+                else
+                    yield return ret;
+            }
+        }
     }
 }
