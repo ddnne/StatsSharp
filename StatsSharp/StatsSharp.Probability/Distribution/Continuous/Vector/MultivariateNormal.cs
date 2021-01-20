@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Vector
 {
     public class MultivariateNormal : ADistribution<MathNet.Numerics.LinearAlgebra.Vector<double>, Parameter.MultivariateNormal>
     {
@@ -18,7 +18,7 @@ namespace StatsSharp.Probability.Distribution
         {
             var dim = parameter.Mean.Count();
             var choleskyFactor = parameter.Sigma.Cholesky().Factor;
-            var normal = new Distribution.Normal();
+            var normal = new Distribution.Continuous.Scalar.Normal();
             var normalParam = new Parameter.Normal(0, 1);
 
             return Enumerable.Range(0, size).Select(i =>

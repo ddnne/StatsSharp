@@ -11,7 +11,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var poisson = new StatsSharp.Probability.Distribution.Poisson();
+            var poisson = new StatsSharp.Probability.Distribution.Discrete.Poisson();
 
             var intensity = 1;
             // 0 <= data
@@ -29,7 +29,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var poisson = new StatsSharp.Probability.Distribution.Poisson();
+            var poisson = new StatsSharp.Probability.Distribution.Discrete.Poisson();
 
             var intensity = 1;
             var parameter = new StatsSharp.Probability.Parameter.Poisson(intensity);
@@ -42,7 +42,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var poisson = new StatsSharp.Probability.Distribution.Poisson();
+            var poisson = new StatsSharp.Probability.Distribution.Discrete.Poisson();
 
             var intensity = 1;
             var parameter = new StatsSharp.Probability.Parameter.Poisson(intensity);
@@ -55,7 +55,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var poisson = new StatsSharp.Probability.Distribution.Poisson();
+            var poisson = new StatsSharp.Probability.Distribution.Discrete.Poisson();
 
             var intensity = 1.5;
             var parameter = new StatsSharp.Probability.Parameter.Poisson(intensity);

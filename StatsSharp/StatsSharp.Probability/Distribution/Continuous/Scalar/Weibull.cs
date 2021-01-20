@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
     public class Weibull : ADistribution<double, Parameter.Weibull>
     {
@@ -18,7 +18,7 @@ namespace StatsSharp.Probability.Distribution
 
         public override IEnumerable<double> GetSamples(Parameter.Weibull parameter, int size)
         {
-            var uniform = new Distribution.Uniform();
+            var uniform = new Distribution.Continuous.Scalar.Uniform();
             var uniformParam = new Probability.Parameter.Uniform(0, 1);
             return uniform.GetSamples(uniformParam, size).Select(u => parameter.Scale * Math.Pow(-Math.Log(u), 1 / parameter.Shape));
         }

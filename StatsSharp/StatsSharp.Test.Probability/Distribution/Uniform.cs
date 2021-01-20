@@ -8,7 +8,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var uniform = new StatsSharp.Probability.Distribution.Uniform();
+            var uniform = new StatsSharp.Probability.Distribution.Continuous.Scalar.Uniform();
 
             var start = 0;
             var end = 2;
@@ -32,7 +32,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var uniform = new StatsSharp.Probability.Distribution.Uniform();
+            var uniform = new StatsSharp.Probability.Distribution.Continuous.Scalar.Uniform();
 
             var start = 0;
             var end = 2;
@@ -47,7 +47,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var uniform = new StatsSharp.Probability.Distribution.Uniform();
+            var uniform = new StatsSharp.Probability.Distribution.Continuous.Scalar.Uniform();
 
             var start = 0;
             var end = 2;
@@ -62,7 +62,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var uniform = new StatsSharp.Probability.Distribution.Uniform();
+            var uniform = new StatsSharp.Probability.Distribution.Continuous.Scalar.Uniform();
 
             var start = 0;
             var end = 2;

@@ -18,10 +18,10 @@ namespace StatsSharp.StochasticProcess.PointProcess
             var t = config.Start;
             var proposalTime = config.Start;
 
-            var uniform = new Probability.Distribution.Uniform();
+            var uniform = new Probability.Distribution.Continuous.Scalar.Uniform();
             var uniformParam = new Probability.Parameter.Uniform(0, 1);
-            var exp = new Probability.Distribution.Exponential();
-            var cat = new Probability.Distribution.Categorical();
+            var exp = new Probability.Distribution.Continuous.Scalar.Exponential();
+            var cat = new Probability.Distribution.Discrete.Categorical();
 
             while (true)
             {

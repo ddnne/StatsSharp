@@ -6,7 +6,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Matrix
 {
     // https://arxiv.org/abs/math-ph/0609050
     public class RandomUnitaryMatrix : ADistribution<Matrix<Complex>, Parameter.RandomUnitaryMatrix>
@@ -23,7 +23,7 @@ namespace StatsSharp.Probability.Distribution
 
         private Matrix<Complex> GetSample(Parameter.RandomUnitaryMatrix parameter)
         {
-            var normal = new Distribution.Normal();
+            var normal = new Distribution.Continuous.Scalar.Normal();
             var normalParam = new Parameter.Normal(0, 1);
 
             var matrix = MathNet.Numerics.LinearAlgebra.Complex.Matrix.Build

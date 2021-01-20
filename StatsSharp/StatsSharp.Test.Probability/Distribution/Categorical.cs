@@ -12,7 +12,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var cat = new StatsSharp.Probability.Distribution.Categorical();
+            var cat = new StatsSharp.Probability.Distribution.Discrete.Categorical();
             var probs = new List<double>() { 0.3, 0.7 };
 
             foreach (var id in Enumerable.Range(0, probs.Count()))
@@ -27,7 +27,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var cat = new StatsSharp.Probability.Distribution.Categorical();
+            var cat = new StatsSharp.Probability.Distribution.Discrete.Categorical();
             var probs = new List<double>() { 0.3, 0.7 };
 
             foreach (var id in Enumerable.Range(0, probs.Count()))
@@ -41,7 +41,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var cat = new StatsSharp.Probability.Distribution.Categorical();
+            var cat = new StatsSharp.Probability.Distribution.Discrete.Categorical();
 
             var probs = new List<double>() { 0.3, 0.7 };
             var parameter = new StatsSharp.Probability.Parameter.Categorical(probs);

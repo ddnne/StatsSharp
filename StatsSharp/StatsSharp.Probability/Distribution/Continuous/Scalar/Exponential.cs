@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
     public class Exponential : ADistribution<double, Parameter.Exponential>
     {
@@ -19,7 +19,7 @@ namespace StatsSharp.Probability.Distribution
 
         public override IEnumerable<double> GetSamples(Parameter.Exponential parameter, int size)
         {
-            var uniformSamples = new Distribution.Uniform().GetSamples(new Parameter.Uniform(0, 1), size);
+            var uniformSamples = new Distribution.Continuous.Scalar.Uniform().GetSamples(new Parameter.Uniform(0, 1), size);
             return uniformSamples.Select(x => -parameter.Average * Math.Log(x));
         }
 

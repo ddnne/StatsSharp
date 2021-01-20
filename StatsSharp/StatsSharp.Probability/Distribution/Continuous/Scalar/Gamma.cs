@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
     public class Gamma : ADistribution<double, Parameter.Gamma>
     {
@@ -25,9 +25,9 @@ namespace StatsSharp.Probability.Distribution
         {
             int intK = (int)Math.Floor(parameter.K);
             double decK = parameter.K - intK;
-            var exp = new Distribution.Exponential();
+            var exp = new Distribution.Continuous.Scalar.Exponential();
             var expParam = new Parameter.Exponential(parameter.Theta);
-            var uniform = new Distribution.Uniform();
+            var uniform = new Distribution.Continuous.Scalar.Uniform();
             var uniformParam = new Parameter.Uniform(0, 1);
 
             return Enumerable.Range(0, size).Select(i =>

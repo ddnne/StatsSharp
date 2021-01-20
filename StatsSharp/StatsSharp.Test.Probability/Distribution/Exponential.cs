@@ -11,7 +11,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var exp = new StatsSharp.Probability.Distribution.Exponential();
+            var exp = new StatsSharp.Probability.Distribution.Continuous.Scalar.Exponential();
 
             var average = 1;
             // 0 <= data
@@ -29,7 +29,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var exp = new StatsSharp.Probability.Distribution.Exponential();
+            var exp = new StatsSharp.Probability.Distribution.Continuous.Scalar.Exponential();
 
             var average = 1;
             var parameter = new StatsSharp.Probability.Parameter.Exponential(average);
@@ -42,7 +42,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var exp = new StatsSharp.Probability.Distribution.Exponential();
+            var exp = new StatsSharp.Probability.Distribution.Continuous.Scalar.Exponential();
 
             var average = 1;
             var parameter = new StatsSharp.Probability.Parameter.Exponential(average);
@@ -55,7 +55,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var exp = new StatsSharp.Probability.Distribution.Exponential();
+            var exp = new StatsSharp.Probability.Distribution.Continuous.Scalar.Exponential();
 
             var average = 1;
             var parameter = new StatsSharp.Probability.Parameter.Exponential(average);

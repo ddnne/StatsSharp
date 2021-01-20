@@ -10,7 +10,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var t = new StatsSharp.Probability.Distribution.T();
+            var t = new StatsSharp.Probability.Distribution.Continuous.Scalar.T();
 
             var mean = 0;
             var scale = 2;
@@ -29,7 +29,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var t = new StatsSharp.Probability.Distribution.T();
+            var t = new StatsSharp.Probability.Distribution.Continuous.Scalar.T();
 
             var mean = 0;
             var scale = 2;
@@ -49,7 +49,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var t = new StatsSharp.Probability.Distribution.T();
+            var t = new StatsSharp.Probability.Distribution.Continuous.Scalar.T();
 
             var mean = 0;
             var scale = 1;
@@ -67,7 +67,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var t = new StatsSharp.Probability.Distribution.T();
+            var t = new StatsSharp.Probability.Distribution.Continuous.Scalar.T();
 
             var mean = 0;
             var scale = 1;

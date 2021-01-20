@@ -9,7 +9,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var normal = new StatsSharp.Probability.Distribution.Normal();
+            var normal = new StatsSharp.Probability.Distribution.Continuous.Scalar.Normal();
 
             var mean = 0;
             var sigma = 2;
@@ -24,7 +24,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var normal = new StatsSharp.Probability.Distribution.Normal();
+            var normal = new StatsSharp.Probability.Distribution.Continuous.Scalar.Normal();
 
             var mean = 0;
             var sigma = 2;
@@ -39,7 +39,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var normal = new StatsSharp.Probability.Distribution.Normal();
+            var normal = new StatsSharp.Probability.Distribution.Continuous.Scalar.Normal();
 
             var mean = 0;
             var sigma = 2;
@@ -54,7 +54,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var normal = new StatsSharp.Probability.Distribution.Normal();
+            var normal = new StatsSharp.Probability.Distribution.Continuous.Scalar.Normal();
 
             var mean = 0;
             var sigma = 1;

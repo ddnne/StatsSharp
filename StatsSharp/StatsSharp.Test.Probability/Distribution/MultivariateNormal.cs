@@ -10,7 +10,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var mNormal = new StatsSharp.Probability.Distribution.MultivariateNormal();
+            var mNormal = new StatsSharp.Probability.Distribution.Continuous.Vector.MultivariateNormal();
 
             var mean = MathNet.Numerics.LinearAlgebra.Vector<double>.Build.DenseOfEnumerable(new List<double>(){0, 1});
             var sigma = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build.DenseOfColumnArrays(new double[][] { new double[] { 1, 0 }, new double[] { 0, 2 } });
@@ -25,7 +25,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var mNormal = new StatsSharp.Probability.Distribution.MultivariateNormal();
+            var mNormal = new StatsSharp.Probability.Distribution.Continuous.Vector.MultivariateNormal();
 
             var mean = MathNet.Numerics.LinearAlgebra.Vector<double>.Build.DenseOfEnumerable(new List<double>(){0, 1});
             var sigma = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build.DenseOfColumnArrays(new double[][] { new double[] { 1, 0 }, new double[] { 0, 2 } });
@@ -41,7 +41,7 @@ namespace StatsSharp.Test.Probability.Distribution
         public void TestMaxValueProbabilityDensityFunction()
         {
             var dim = 2;
-            var mNormal = new StatsSharp.Probability.Distribution.MultivariateNormal();
+            var mNormal = new StatsSharp.Probability.Distribution.Continuous.Vector.MultivariateNormal();
 
             var mean = MathNet.Numerics.LinearAlgebra.Vector<double>.Build.DenseOfEnumerable(new List<double>(){0, 1});
             var sigma = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build.DenseOfColumnArrays(new double[][] { new double[] { 1, 0 }, new double[] { 0, 2 } });

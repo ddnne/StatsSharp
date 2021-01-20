@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using StatsSharp.Extensions;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Discrete
 {
     public class Multinomial : ADistribution<IEnumerable<int>, Parameter.Multinomial>
     {

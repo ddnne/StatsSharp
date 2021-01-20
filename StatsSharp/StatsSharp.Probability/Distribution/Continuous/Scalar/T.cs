@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MathNet.Numerics;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
     public class T : ADistribution<double, Parameter.T>
     {

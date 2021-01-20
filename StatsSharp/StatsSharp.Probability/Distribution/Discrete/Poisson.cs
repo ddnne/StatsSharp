@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Discrete
 {
     public class Poisson : ADistribution<int, Parameter.Poisson>
     {
@@ -21,7 +21,7 @@ namespace StatsSharp.Probability.Distribution
 
         public override IEnumerable<int> GetSamples(Parameter.Poisson parameter, int size)
         {
-            var uniform = new Distribution.Uniform();
+            var uniform = new Distribution.Continuous.Scalar.Uniform();
             var uniformParam = new Parameter.Uniform(0, 1);
             return Enumerable.Range(0, size).Select(_ =>
             {

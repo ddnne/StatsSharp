@@ -9,7 +9,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var Gamma = new StatsSharp.Probability.Distribution.Gamma();
+            var Gamma = new StatsSharp.Probability.Distribution.Continuous.Scalar.Gamma();
 
             var k = 1;
             var theta = 2;
@@ -24,7 +24,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var Gamma = new StatsSharp.Probability.Distribution.Gamma();
+            var Gamma = new StatsSharp.Probability.Distribution.Continuous.Scalar.Gamma();
 
             var k = 1;
             var theta = 2;
@@ -39,7 +39,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var Gamma = new StatsSharp.Probability.Distribution.Gamma();
+            var Gamma = new StatsSharp.Probability.Distribution.Continuous.Scalar.Gamma();
 
             var k = 1;
             var theta = 2;
@@ -52,7 +52,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var Gamma = new StatsSharp.Probability.Distribution.Gamma();
+            var Gamma = new StatsSharp.Probability.Distribution.Continuous.Scalar.Gamma();
 
             var k = 2;
             var theta = 1;

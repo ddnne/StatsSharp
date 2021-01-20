@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using StatsSharp.Extensions;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Discrete
 {
     public class Categorical : ADistribution<int, Parameter.Categorical>
     {
@@ -20,7 +20,7 @@ namespace StatsSharp.Probability.Distribution
 
         private int GetSample(Parameter.Categorical parameter)
         {
-            var uniform = new Distribution.Uniform();
+            var uniform = new Distribution.Continuous.Scalar.Uniform();
             var unifomParam = new Parameter.Uniform(0, 1);
             var uniformSample = uniform.GetSamples(unifomParam, 1).First();
             var cumSumProb = parameter.Probabilities.CumulativeSum();

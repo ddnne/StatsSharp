@@ -9,7 +9,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestLikelihoodFunction()
         {
-            var weibull = new StatsSharp.Probability.Distribution.Weibull();
+            var weibull = new StatsSharp.Probability.Distribution.Continuous.Scalar.Weibull();
 
             var shape = 1;
             var scale = 2;
@@ -24,7 +24,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestProbabilityDensityFunction()
         {
-            var weibull = new StatsSharp.Probability.Distribution.Weibull();
+            var weibull = new StatsSharp.Probability.Distribution.Continuous.Scalar.Weibull();
 
             var shape = 1;
             var scale = 2;
@@ -40,7 +40,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestCumulativeDistributionFunction()
         {
-            var weibull = new StatsSharp.Probability.Distribution.Weibull();
+            var weibull = new StatsSharp.Probability.Distribution.Continuous.Scalar.Weibull();
 
             var shape = 1;
             var scale = 2;
@@ -54,7 +54,7 @@ namespace StatsSharp.Test.Probability.Distribution
         [TestMethod]
         public void TestMaxValueProbabilityDensityFunction()
         {
-            var weibull = new StatsSharp.Probability.Distribution.Weibull();
+            var weibull = new StatsSharp.Probability.Distribution.Continuous.Scalar.Weibull();
 
             var shape = 1;
             var scale = 2;

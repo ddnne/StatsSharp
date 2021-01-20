@@ -19,8 +19,8 @@ namespace StatsSharp
         {
             var size = 10000;
             var rejectionSamplerConfig = new Probability.SamplerConfig.RejectionSamplerConfig
-                <double, Probability.Parameter.Exponential, Probability.Parameter.Exponential>(new Probability.Distribution.Exponential(), new Probability.Parameter.Exponential(2),
-                new Probability.Distribution.Exponential(), new Probability.Parameter.Exponential(4), size, 2);
+                <double, Probability.Parameter.Exponential, Probability.Parameter.Exponential>(new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Exponential(2),
+                new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Exponential(4), size, 2);
             var sampler = new Probability.Sampler.RejectionSampler<double, Probability.Parameter.Exponential, Probability.Parameter.Exponential>();
             var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig);
 
@@ -32,13 +32,13 @@ namespace StatsSharp
             Console.WriteLine(sampleFromSampler.Average());
             Console.WriteLine(sampleFromSampler.StandardDeviation());
 
-            var gamma = new Probability.Distribution.Gamma();
+            var gamma = new Probability.Distribution.Continuous.Scalar.Gamma();
             var gammaParam = new Probability.Parameter.Gamma(2.5, 2);
             var gammaSamples = gamma.GetSamples(gammaParam, size);
             Console.WriteLine(gammaSamples.Average());
             Console.WriteLine(gammaSamples.StandardDeviation());
 
-            var poisson = new Probability.Distribution.Poisson();
+            var poisson = new Probability.Distribution.Discrete.Poisson();
             var poissonParam = new Probability.Parameter.Poisson(1.5);
             var poissonSamples = poisson.GetSamples(poissonParam, size);
             Console.WriteLine(poissonSamples.Average());
@@ -95,7 +95,7 @@ namespace StatsSharp
         {
             int size = 10000;
             var probs = new List<double>() { 0.1, 0.3, 0.5, 0.1 };
-            var cat = new Probability.Distribution.Categorical();
+            var cat = new Probability.Distribution.Discrete.Categorical();
             var catParam = new Probability.Parameter.Categorical(probs);
             var samples = cat.GetSamples(catParam, size);
 
@@ -108,7 +108,7 @@ namespace StatsSharp
         static void CheckUnitaryMatrixGenerate()
         {
             var size = 10;
-            var uMatrix = new Probability.Distribution.RandomUnitaryMatrix();
+            var uMatrix = new Probability.Distribution.Continuous.Matrix.RandomUnitaryMatrix();
             var param = new Probability.Parameter.RandomUnitaryMatrix(2);
 
             var samples = uMatrix.GetSamples(param, size);
@@ -122,7 +122,7 @@ namespace StatsSharp
         static void CheckOrthogonalMatrixGenerate()
         {
             var size = 10;
-            var uMatrix = new Probability.Distribution.RandomOrthogonalMatrix();
+            var uMatrix = new Probability.Distribution.Continuous.Matrix.RandomOrthogonalMatrix();
             var param = new Probability.Parameter.RandomOrthogonalMatrix(2);
 
             var samples = uMatrix.GetSamples(param, size);
