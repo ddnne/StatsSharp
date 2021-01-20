@@ -38,7 +38,7 @@ namespace StatsSharp
             Console.WriteLine(gammaSamples.Average());
             Console.WriteLine(gammaSamples.StandardDeviation());
 
-            var poisson = new Probability.Distribution.Discrete.Poisson();
+            var poisson = new Probability.Distribution.Discrete.Univariate.Poisson();
             var poissonParam = new Probability.Parameter.Poisson(1.5);
             var poissonSamples = poisson.GetSamples(poissonParam, size);
             Console.WriteLine(poissonSamples.Average());
@@ -95,7 +95,7 @@ namespace StatsSharp
         {
             int size = 10000;
             var probs = new List<double>() { 0.1, 0.3, 0.5, 0.1 };
-            var cat = new Probability.Distribution.Discrete.Categorical();
+            var cat = new Probability.Distribution.Discrete.Univariate.Categorical();
             var catParam = new Probability.Parameter.Categorical(probs);
             var samples = cat.GetSamples(catParam, size);
 

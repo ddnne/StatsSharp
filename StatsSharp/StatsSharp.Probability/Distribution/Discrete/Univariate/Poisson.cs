@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution.Discrete
+namespace StatsSharp.Probability.Distribution.Discrete.Univariate
 {
     public class Poisson : ADistribution<int, Parameter.Poisson>
     {

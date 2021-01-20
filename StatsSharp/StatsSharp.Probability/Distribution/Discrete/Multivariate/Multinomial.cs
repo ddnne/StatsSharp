@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using StatsSharp.Extensions;
 
-namespace StatsSharp.Probability.Distribution.Discrete
+namespace StatsSharp.Probability.Distribution.Discrete.Multivariate
 {
     public class Multinomial : ADistribution<IEnumerable<int>, Parameter.Multinomial>
     {
         public Multinomial()
         {
-            CategoricalDist = new Categorical();
+            CategoricalDist = new Univariate.Categorical();
         }
 
-        private Categorical CategoricalDist { get; }
+        private Univariate.Categorical CategoricalDist { get; }
 
         public override Func<IEnumerable<int>, double> GetCumulativeDistributionFunction(Parameter.Multinomial parameter)
         {

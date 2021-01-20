@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using StatsSharp.Extensions;
 
-namespace StatsSharp.Probability.Distribution.Discrete
+namespace StatsSharp.Probability.Distribution.Discrete.Univariate
 {
     public class Categorical : ADistribution<int, Parameter.Categorical>
     {

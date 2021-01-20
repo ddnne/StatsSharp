@@ -35,7 +35,7 @@ namespace StatsSharp.StochasticProcess.PointProcess
             double intensityOfPoissonDist = config.Intensity * (config.End - config.Start);
 
             var possionConfig = new Probability.Parameter.Poisson(intensityOfPoissonDist);
-            var poisson = new Probability.Distribution.Discrete.Poisson();
+            var poisson = new Probability.Distribution.Discrete.Univariate.Poisson();
             return poisson.GetSamples(possionConfig, size);
         }
     }

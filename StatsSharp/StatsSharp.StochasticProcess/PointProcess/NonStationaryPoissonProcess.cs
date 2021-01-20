@@ -34,7 +34,7 @@ namespace StatsSharp.StochasticProcess.PointProcess
         {
             double intensityOfPoissonDist = MathNet.Numerics.Integration.GaussLegendreRule.Integrate(config.Intensity, config.Start, config.End, 1024);
             var possionConfig = new Probability.Parameter.Poisson(intensityOfPoissonDist);
-            var poisson = new Probability.Distribution.Discrete.Poisson();
+            var poisson = new Probability.Distribution.Discrete.Univariate.Poisson();
             return poisson.GetSamples(possionConfig, size);
         }
     }
