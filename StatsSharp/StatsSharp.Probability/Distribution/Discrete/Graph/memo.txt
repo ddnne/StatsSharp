@@ -1,0 +1,5 @@
+﻿https://reference.wolfram.com/language/ref/UniformGraphDistribution.html
+https://reference.wolfram.com/language/ref/BarabasiAlbertGraphDistribution.html
+https://reference.wolfram.com/language/ref/PriceGraphDistribution.html
+https://reference.wolfram.com/language/ref/DegreeGraphDistribution.html
+https://reference.wolfram.com/language/ref/WattsStrogatzGraphDistribution.html
