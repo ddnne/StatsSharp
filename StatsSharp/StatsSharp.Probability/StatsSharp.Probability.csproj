@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph\StatsSharp.Graph.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,8 +16,8 @@ namespace StatsSharp.Probability.Sampler
         {
             return Enumerable.Range(0, samplerConfig.Count).Select(i =>
             {
-                var uniformParam = new Probability.Parameter.Uniform(0, 1);
-                var uniform = new Probability.Distribution.Uniform();
+                var uniformParam = new Probability.Parameter.Continuous.Scalar.Uniform(0, 1);
+                var uniform = new Probability.Distribution.Continuous.Scalar.Uniform();
 
                 var targetProbabilityDensityFunction = samplerConfig.TargetDistribution.GetProbabilityDensityFunction(samplerConfig.TargetDistParameter);
                 var proposalProbabilityDensityFunction = samplerConfig.ProposalDistribution.GetProbabilityDensityFunction(samplerConfig.ProposalDistParameter);

@@ -15,8 +15,8 @@ namespace StatsSharp.StochasticProcess.PointProcess
         private IEnumerable<UnivariatePointProcessEvent> GetEventSample(NonStationaryPoissonProcessConfig config)
         {
             var intensity = config.Intensity(StochasticProcess.Extentions.FindIntensityMaximumTime(config));
-            var uniform = new Probability.Distribution.Uniform();
-            var uniformParam = new Probability.Parameter.Uniform(0, 1);
+            var uniform = new Probability.Distribution.Continuous.Scalar.Uniform();
+            var uniformParam = new Probability.Parameter.Continuous.Scalar.Uniform(0, 1);
 
             var stPoissonProc = new StochasticProcess.PointProcess.StationaryPoissonProcess();
             var sample = stPoissonProc.GetEventSamples(new StationaryPoissonProcessConfig(intensity, config.Start, config.End), 1).First();
@@ -33,8 +33,8 @@ namespace StatsSharp.StochasticProcess.PointProcess
         public IEnumerable<int> GetNumberOfEventSamples(NonStationaryPoissonProcessConfig config, int size)
         {
             double intensityOfPoissonDist = MathNet.Numerics.Integration.GaussLegendreRule.Integrate(config.Intensity, config.Start, config.End, 1024);
-            var possionConfig = new Probability.Parameter.Poisson(intensityOfPoissonDist);
-            var poisson = new Probability.Distribution.Poisson();
+            var possionConfig = new Probability.Parameter.Discrete.Univariate.Poisson(intensityOfPoissonDist);
+            var poisson = new Probability.Distribution.Discrete.Univariate.Poisson();
             return poisson.GetSamples(possionConfig, size);
         }
     }

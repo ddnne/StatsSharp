@@ -18,23 +18,23 @@ namespace StatsSharp.StochasticProcess.PointProcess
             var t = config.Start;
             var proposalTime = config.Start;
 
-            var uniform = new Probability.Distribution.Uniform();
-            var uniformParam = new Probability.Parameter.Uniform(0, 1);
-            var exp = new Probability.Distribution.Exponential();
-            var cat = new Probability.Distribution.Categorical();
+            var uniform = new Probability.Distribution.Continuous.Scalar.Uniform();
+            var uniformParam = new Probability.Parameter.Continuous.Scalar.Uniform(0, 1);
+            var exp = new Probability.Distribution.Continuous.Scalar.Exponential();
+            var cat = new Probability.Distribution.Discrete.Univariate.Categorical();
 
             while (true)
             {
                 if (proposalTime > config.End)
                     break;
-                var expParam = new Probability.Parameter.Exponential(1.0 / maxIntensity);
+                var expParam = new Probability.Parameter.Continuous.Scalar.Exponential(1.0 / maxIntensity);
                 proposalTime += exp.GetSamples(expParam, 1).First();
                 var targetIntensities = config.Intensities(proposalTime, events);
                 var sumTargetIntensity = targetIntensities.Sum();
                 if (sumTargetIntensity / maxIntensity >= uniform.GetSamples(uniformParam, 1).First())
                 {
                     t = proposalTime;
-                    var catParam = new Probability.Parameter.Categorical(targetIntensities.Select(intenity => intenity / sumTargetIntensity));
+                    var catParam = new Probability.Parameter.Discrete.Univariate.Categorical(targetIntensities.Select(intenity => intenity / sumTargetIntensity));
                     var newEventId = cat.GetSamples(catParam, 1).First();
                     events.Add(new MultivariatePointProcessEvent(newEventId, t));
 

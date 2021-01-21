@@ -13,8 +13,8 @@ namespace StatsSharp.StochasticProcess.PointProcess
         private IEnumerable<UnivariatePointProcessEvent> GetEventSample(StationaryPoissonProcessConfig config)
         {
             var t = config.Start;
-            var exp = new Probability.Distribution.Exponential();
-            var expParam = new Probability.Parameter.Exponential(1.0 / config.Intensity);
+            var exp = new Probability.Distribution.Continuous.Scalar.Exponential();
+            var expParam = new Probability.Parameter.Continuous.Scalar.Exponential(1.0 / config.Intensity);
 
             while (t <= config.End)
             {
@@ -34,8 +34,8 @@ namespace StatsSharp.StochasticProcess.PointProcess
         {
             double intensityOfPoissonDist = config.Intensity * (config.End - config.Start);
 
-            var possionConfig = new Probability.Parameter.Poisson(intensityOfPoissonDist);
-            var poisson = new Probability.Distribution.Poisson();
+            var possionConfig = new Probability.Parameter.Discrete.Univariate.Poisson(intensityOfPoissonDist);
+            var poisson = new Probability.Distribution.Discrete.Univariate.Poisson();
             return poisson.GetSamples(possionConfig, size);
         }
     }
