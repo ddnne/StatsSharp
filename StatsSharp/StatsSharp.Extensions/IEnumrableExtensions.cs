@@ -142,7 +142,7 @@ namespace StatsSharp.Extensions
             var size = values.Count();
             if (size < r)
                 throw new ArgumentException();
-            for (int i = 0; i < size - r; ++i)
+            for (int i = 0; i < size; ++i)
             {
                 var ret = new List<T>();
                 ret.Add(values.ElementAt(i));

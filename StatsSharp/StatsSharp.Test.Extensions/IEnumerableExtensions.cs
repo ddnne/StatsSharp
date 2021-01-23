@@ -82,5 +82,51 @@ namespace StatsSharp.Test.Extensions
             var intResult = intList.CumulativeProduct();
             CollectionAssert.AreEqual(new List<int>() { 1, 2, 10 }, intResult.ToList());
         }
+
+        [TestMethod]
+        public void CombinationTest()
+        {
+            var elems = new int[] { 1, 2 };
+            var results__ = elems.Combination(1);
+
+            Assert.AreEqual(2, results__.Count());
+            foreach (var result in results__)
+                Assert.AreEqual(1, result.Count());
+
+            var results = results__.Select(i => i.First()).OrderBy(x => x).ToList();
+            CollectionAssert.AreEqual(new int[] { 1, 2 }, results.ToArray());
+
+            var results_ = elems.Combination(2);
+
+            Assert.AreEqual(1, results_.Count());
+            foreach (var result in results_)
+                Assert.AreEqual(2, result.Count());
+
+            results = results_.First().ToList();
+            CollectionAssert.AreEqual(new int[] { 1, 2 }, results.ToArray());
+        }
+
+        [TestMethod]
+        public void PermutationTest()
+        {
+            var elems = new int[] { 1, 2 };
+            var results__ = elems.Permutation(1);
+
+            Assert.AreEqual(2, results__.Count());
+            foreach (var result in results__)
+                Assert.AreEqual(1, result.Count());
+
+            var results = results__.Select(i => i.First()).OrderBy(x => x).ToList();
+            CollectionAssert.AreEqual(new int[] { 1, 2 }, results.ToArray());
+
+            var results_ = elems.Permutation(2).OrderBy(x => x.First());
+
+            Assert.AreEqual(2, results_.Count());
+            foreach (var result in results_)
+                Assert.AreEqual(2, result.Count());
+
+            CollectionAssert.AreEqual(new int[] { 1, 2 }, results_.First().ToList());
+            CollectionAssert.AreEqual(new int[] { 2, 1 }, results_.Last().ToList());
+        }
     }
 }

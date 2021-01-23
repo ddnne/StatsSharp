@@ -11,7 +11,7 @@ namespace StatsSharp.StochasticProcess.PointProcessConfig
         public MultivariateHawkesProcessConfig(IEnumerable<Func<double, double>> backgroundRate, IEnumerable<IEnumerable<Func<double, double>>> kernels, double start, double end)
         {
             
-            if (backgroundRate.Count() != kernels.Count())
+            if (backgroundRate.Count() != kernels.Count() || end < start)
                 throw new ArgumentException();
             foreach(var kernel in kernels)
             {
