@@ -25,7 +25,7 @@ namespace StatsSharp.StochasticProcess.RandomWalk
             var transitionProbabilities = vToDegv.Keys.Select(v => (new double[]
             {
                 1,
-                degu * Config.NodeToStationaryProbability[u] / (vToDegv[v] * Config.NodeToStationaryProbability[v])
+                degu * Config.NodeToStationaryProbability[v] / (vToDegv[v] * Config.NodeToStationaryProbability[u])
             }
                 ).Min() / degu);
 

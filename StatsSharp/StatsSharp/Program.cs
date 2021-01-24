@@ -167,33 +167,27 @@ namespace StatsSharp
 
         static void CheckHittingTimeForCompleteGraph()
         {
-            var max = 100;
-            var sizes = Enumerable.Range(2, max);
-            var simulationSize = 10000;
-            foreach (var size in sizes)
+            var maxCliqueSize = 10 + 1;
+            var cliqueSizes = Enumerable.Range(2, maxCliqueSize);
+            var simulationSize = 1000;
+            foreach (var cliqueSize in cliqueSizes)
             {
-                var nodes = Enumerable.Range(0, size).Select(i => new Node(i.ToString())).ToList();
-                var edges = nodes.Combination(2).Select(pair => new Edge(pair.First(), pair.Last())).ToList();
+                var pathLength = cliqueSize;
+                var graph = Graph.GraphFamilies.Lollipop(cliqueSize, pathLength);
 
-                var length = size;
-                nodes = nodes.Concat(Enumerable.Range(0, length).Select(i => new Node((size + i).ToString()))).ToList();
-                edges = edges.Concat(Enumerable.Range(0, length).Select(i => new Edge(nodes[size + i - 1], nodes[size + i]))).ToList();
-
-                var graph = new Graph.Graph.Graph(edges, nodes);
-                var start = nodes.First();
-                var end = nodes.Last();
-                var stationaryDist = nodes.ToDictionary(n => (INode)n, n => 1.0);
-                var beta = 0.5;
-
+                var start = graph.Nodes.First();
+                var end = graph.Nodes.Last();
+                
                 var steps = Enumerable.Range(0, simulationSize).AsParallel().Select(i =>
-                // var steps = Enumerable.Range(0, simulationSize).Select(i =>
                 {
-                    // var randomWalkConfig = new RandomWalkConfig(start);
-                    // var randomWalk = new RandomWalk(graph, randomWalkConfig);
-                    // var metropolisWalkConfig = new MetropolisWalkConfig(start, stationaryDist);
-                    // var randomWalk = new MetropolisWalk(graph, metropolisWalkConfig);
-                    var betaWalkConfig = new BetaRandomWalkConfig (start, beta);
-                    var randomWalk = new BetaRandomWalk(graph, betaWalkConfig);
+                    // var config = new RandomWalkConfig(start);
+                    // var randomWalk = new RandomWalk(graph, config);
+                    var stationaryDist = graph.Nodes.ToDictionary(n => (INode)n, n => 1.0);
+                    var config = new MetropolisWalkConfig(start, stationaryDist);
+                    var randomWalk = new MetropolisWalk(graph, config);
+                    // var beta = 0.5;
+                    // var config = new BetaRandomWalkConfig (start, beta);
+                    // var randomWalk = new BetaRandomWalk(graph, config);
                     while (!randomWalk.LocationHistory.Last().Equals(end))
                         randomWalk.Walk();
                     return randomWalk.LocationHistory.Count() - 1;
@@ -201,7 +195,7 @@ namespace StatsSharp
 
                 var average = steps.Average();
                 var std = steps.StandardDeviation();
-                Console.WriteLine(size.ToString() + "\t" + average.ToString() + "\t" + std.ToString());
+                Console.WriteLine(cliqueSize.ToString() + "\t" + average.ToString() + "\t" + std.ToString());
             }
         }
     }
