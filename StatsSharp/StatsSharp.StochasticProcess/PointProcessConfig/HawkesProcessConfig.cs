@@ -10,6 +10,8 @@ namespace StatsSharp.StochasticProcess.PointProcessConfig
     {
         public HawkesProcessConfig(Func<double, double> backgroundRate, Func<double, double> kernel, double start, double end)
         {
+            if (end < start)
+                throw new ArgumentException();
             BackgroundRate = backgroundRate;
             Kernel = kernel;
             Start = start;

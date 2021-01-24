@@ -1,6 +1,8 @@
 ﻿using StatsSharp.Extensions;
 using StatsSharp.Graph.Edge;
 using StatsSharp.Graph.Node;
+using StatsSharp.StochasticProcess.RandomWalk;
+using StatsSharp.StochasticProcess.RandomWalkConfig;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,7 @@ namespace StatsSharp
         {
             Console.WriteLine("Hello World!");
 
-            CheckBernoulliGraph();
+            CheckHittingTimeForCompleteGraph();
         }
 
         static void CheckRejectionSampling()
@@ -161,6 +163,40 @@ namespace StatsSharp
 
             Console.WriteLine(averageEdgeNum);
             Console.WriteLine(varEdgeNum);
+        }
+
+        static void CheckHittingTimeForCompleteGraph()
+        {
+            var maxCliqueSize = 10 + 1;
+            var cliqueSizes = Enumerable.Range(2, maxCliqueSize);
+            var simulationSize = 1000;
+            foreach (var cliqueSize in cliqueSizes)
+            {
+                var pathLength = cliqueSize;
+                var graph = Graph.GraphFamilies.Lollipop(cliqueSize, pathLength);
+
+                var start = graph.Nodes.First();
+                var end = graph.Nodes.Last();
+                
+                var steps = Enumerable.Range(0, simulationSize).AsParallel().Select(i =>
+                {
+                    // var config = new RandomWalkConfig(start);
+                    // var randomWalk = new RandomWalk(graph, config);
+                    var stationaryDist = graph.Nodes.ToDictionary(n => (INode)n, n => 1.0);
+                    var config = new MetropolisWalkConfig(start, stationaryDist);
+                    var randomWalk = new MetropolisWalk(graph, config);
+                    // var beta = 0.5;
+                    // var config = new BetaRandomWalkConfig (start, beta);
+                    // var randomWalk = new BetaRandomWalk(graph, config);
+                    while (!randomWalk.LocationHistory.Last().Equals(end))
+                        randomWalk.Walk();
+                    return randomWalk.LocationHistory.Count() - 1;
+                });
+
+                var average = steps.Average();
+                var std = steps.StandardDeviation();
+                Console.WriteLine(cliqueSize.ToString() + "\t" + average.ToString() + "\t" + std.ToString());
+            }
         }
     }
 }
