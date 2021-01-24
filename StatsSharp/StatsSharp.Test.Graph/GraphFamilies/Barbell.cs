@@ -13,27 +13,27 @@ namespace StatsSharp.Test.Graph
         {
             var cliqueSize = 3;
 
-            var lollipop = StatsSharp.Graph.GraphFamilies.Barbell(cliqueSize);
+            var barbell = StatsSharp.Graph.GraphFamilies.Barbell(cliqueSize);
 
-            Assert.IsTrue(lollipop.Nodes.Count() == 6);
-            Assert.IsTrue(lollipop.Edges.Count() == 7);
+            Assert.IsTrue(barbell.Nodes.Count() == 6);
+            Assert.IsTrue(barbell.Edges.Count() == 7);
 
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("0")));
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("1")));
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("2")));
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("3")));
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("4")));
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("5")));
+            Assert.IsTrue(barbell.Nodes.Contains(new StatsSharp.Graph.Node.Node("0")));
+            Assert.IsTrue(barbell.Nodes.Contains(new StatsSharp.Graph.Node.Node("1")));
+            Assert.IsTrue(barbell.Nodes.Contains(new StatsSharp.Graph.Node.Node("2")));
+            Assert.IsTrue(barbell.Nodes.Contains(new StatsSharp.Graph.Node.Node("3")));
+            Assert.IsTrue(barbell.Nodes.Contains(new StatsSharp.Graph.Node.Node("4")));
+            Assert.IsTrue(barbell.Nodes.Contains(new StatsSharp.Graph.Node.Node("5")));
 
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("0"), new StatsSharp.Graph.Node.Node("1"))));
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("0"), new StatsSharp.Graph.Node.Node("2"))));
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("1"), new StatsSharp.Graph.Node.Node("2"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("0"), new StatsSharp.Graph.Node.Node("1"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("0"), new StatsSharp.Graph.Node.Node("2"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("1"), new StatsSharp.Graph.Node.Node("2"))));
 
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("2"), new StatsSharp.Graph.Node.Node("3"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("2"), new StatsSharp.Graph.Node.Node("3"))));
 
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("3"), new StatsSharp.Graph.Node.Node("4"))));
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("3"), new StatsSharp.Graph.Node.Node("5"))));
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("4"), new StatsSharp.Graph.Node.Node("5"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("3"), new StatsSharp.Graph.Node.Node("4"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("3"), new StatsSharp.Graph.Node.Node("5"))));
+            Assert.IsTrue(barbell.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("4"), new StatsSharp.Graph.Node.Node("5"))));
         }
     }
 }

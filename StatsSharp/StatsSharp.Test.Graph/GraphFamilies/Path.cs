@@ -13,14 +13,14 @@ namespace StatsSharp.Test.Graph
         {
             var pathSize = 2;
 
-            var lollipop = StatsSharp.Graph.GraphFamilies.Path(pathSize);
+            var path = StatsSharp.Graph.GraphFamilies.Path(pathSize);
 
-            Assert.IsTrue(lollipop.Edges.Count() == 1);
+            Assert.IsTrue(path.Edges.Count() == 1);
 
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("0")));
-            Assert.IsTrue(lollipop.Nodes.Contains(new StatsSharp.Graph.Node.Node("1")));
+            Assert.IsTrue(path.Nodes.Contains(new StatsSharp.Graph.Node.Node("0")));
+            Assert.IsTrue(path.Nodes.Contains(new StatsSharp.Graph.Node.Node("1")));
 
-            Assert.IsTrue(lollipop.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("0"), new StatsSharp.Graph.Node.Node("1"))));
+            Assert.IsTrue(path.Edges.Contains(new StatsSharp.Graph.Edge.Edge(new StatsSharp.Graph.Node.Node("0"), new StatsSharp.Graph.Node.Node("1"))));
         }
     }
 }
