@@ -21,7 +21,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Matrix
             throw new NotImplementedException();
         }
 
-        private Matrix<Complex> GetSample(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
+        protected virtual Matrix<Complex> GetSample(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
         {
             var normal = new Distribution.Continuous.Scalar.Normal();
             var normalParam = new Parameter.Continuous.Scalar.Normal(0, 1);

@@ -15,7 +15,7 @@ namespace StatsSharp
         {
             Console.WriteLine("Hello World!");
 
-            CheckHittingTimeForCompleteGraph();
+            CheckSpecialUnitaryMatrixGenerate();
         }
 
         static void CheckRejectionSampling()
@@ -196,6 +196,21 @@ namespace StatsSharp
                 var average = steps.Average();
                 var std = steps.StandardDeviation();
                 Console.WriteLine(cliqueSize.ToString() + "\t" + average.ToString() + "\t" + std.ToString());
+            }
+        }
+
+        static void CheckSpecialUnitaryMatrixGenerate()
+        {
+            var size = 10;
+            var sUMatrix = new Probability.Distribution.Continuous.Matrix.RandomSpecialUnitaryMatrix();
+            var param = new Probability.Parameter.Continuous.Matrix.RandomUnitaryMatrix(2);
+
+            var samples = sUMatrix.GetSamples(param, size);
+            foreach (var sample in samples)
+            {
+                var prod = sample.Conjugate().Transpose() * sample;
+                Console.WriteLine(prod.ToString());
+                Console.WriteLine(sample.Determinant());
             }
         }
     }
