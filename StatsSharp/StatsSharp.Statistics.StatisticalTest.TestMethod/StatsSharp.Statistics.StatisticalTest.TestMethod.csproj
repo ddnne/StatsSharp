@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.NullHypothesis\StatsSharp.Statistics.StatisticalTest.NullHypothesis.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.TestResult\StatsSharp.Statistics.StatisticalTest.TestResult.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Graph\StatsSharp.Graph.Graph.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
+  </ItemGroup>
+
+</Project>

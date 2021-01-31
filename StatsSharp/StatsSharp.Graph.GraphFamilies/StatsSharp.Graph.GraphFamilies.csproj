@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Edge\StatsSharp.Graph.Edge.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Extensions\StatsSharp.Graph.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Graph\StatsSharp.Graph.Graph.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Node\StatsSharp.Graph.Node.csproj" />
+  </ItemGroup>
+
+</Project>

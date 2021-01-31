@@ -7,9 +7,24 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
-    <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
-    <ProjectReference Include="..\StatsSharp.Statistics\StatsSharp.Statistics.csproj" />
-    <ProjectReference Include="..\StatsSharp.StochasticProcess\StatsSharp.StochasticProcess.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Algorithm\StatsSharp.Graph.Algorithm.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Edge\StatsSharp.Graph.Edge.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Extensions\StatsSharp.Graph.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.GraphFamilies\StatsSharp.Graph.GraphFamilies.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Graph\StatsSharp.Graph.Graph.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Node\StatsSharp.Graph.Node.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.Sampling.SamplingMethod\StatsSharp.Statistics.Sampling.SamplingMethod.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.NullHypothesis\StatsSharp.Statistics.StatisticalTest.NullHypothesis.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.TestMethod\StatsSharp.Statistics.StatisticalTest.TestMethod.csproj" />
+    <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.TestResult\StatsSharp.Statistics.StatisticalTest.TestResult.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.PointProcessConfig\StatsSharp.StochasticProcess.PointProcessConfig.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.PointProcessEvent\StatsSharp.StochasticProcess.PointProcessEvent.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.PointProcessExtensions\StatsSharp.StochasticProcess.PointProcessExtensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.PointProcess\StatsSharp.StochasticProcess.PointProcess.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.RandomWalkConfig\StatsSharp.StochasticProcess.RandomWalkConfig.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.RandomWalk\StatsSharp.StochasticProcess.RandomWalk.csproj" />
   </ItemGroup>
 
 </Project>

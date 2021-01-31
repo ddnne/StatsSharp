@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Graph.Edge\StatsSharp.Graph.Edge.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Node\StatsSharp.Graph.Node.csproj" />
+  </ItemGroup>
+
+</Project>
