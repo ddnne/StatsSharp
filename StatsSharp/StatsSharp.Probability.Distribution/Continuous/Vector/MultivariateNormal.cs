@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Vector
 {
-    public class MultivariateNormal : ADistribution<MathNet.Numerics.LinearAlgebra.Vector<double>, Parameter.Continuous.Vector.MultivariateNormal>
+    public class MultivariateNormal : AVectorContinuousDistribution<MathNet.Numerics.LinearAlgebra.Vector<double>, Parameter.Continuous.Vector.MultivariateNormal>
     {
-        protected override double ProbabilityDensityFunction(MathNet.Numerics.LinearAlgebra.Vector<double> data, Parameter.Continuous.Vector.MultivariateNormal parameter)
+        public override double ProbabilityDensityFunction(MathNet.Numerics.LinearAlgebra.Vector<double> data, Parameter.Continuous.Vector.MultivariateNormal parameter)
         {
             var dim = parameter.Mean.Count();
             return Math.Exp(-parameter.SigmaInverse.Multiply(data - parameter.Mean).DotProduct(data - parameter.Mean) / 2.0)
@@ -26,11 +26,6 @@ namespace StatsSharp.Probability.Distribution.Continuous.Vector
                 var samples = MathNet.Numerics.LinearAlgebra.Vector<double>.Build.DenseOfEnumerable(normal.GetSamples(normalParam, dim));
                 return choleskyFactor * samples + parameter.Mean;
             });
-        }
-
-        public override Func<MathNet.Numerics.LinearAlgebra.Vector<double>, double> GetCumulativeDistributionFunction(Parameter.Continuous.Vector.MultivariateNormal parameter)
-        {
-            throw new NotSupportedException();
         }
 
         public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Vector.MultivariateNormal parameter)

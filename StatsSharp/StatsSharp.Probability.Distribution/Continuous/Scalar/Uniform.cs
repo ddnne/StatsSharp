@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Uniform : ADistribution<double, Parameter.Continuous.Scalar.Uniform>
+    public class Uniform : AScalarContinuousDistribution<double, Parameter.Continuous.Scalar.Uniform>
     {
-        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Uniform parameter)
+        public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Uniform parameter)
         {
             if (data > parameter.End || data < parameter.Start)
                 return 0;

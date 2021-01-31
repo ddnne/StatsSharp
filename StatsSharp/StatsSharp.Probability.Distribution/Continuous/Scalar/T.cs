@@ -5,7 +5,7 @@ using MathNet.Numerics;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class T : ADistribution<double, Parameter.Continuous.Scalar.T>
+    public class T : AScalarContinuousDistribution<double, Parameter.Continuous.Scalar.T>
     {
         // https://mathworld.wolfram.com/Studentst-Distribution.html
         public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Continuous.Scalar.T parameter)
@@ -26,7 +26,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             throw new NotImplementedException();
         }
 
-        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.T parameter)
+        public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.T parameter)
         {
             return MathNet.Numerics.SpecialFunctions.Gamma((parameter.DegreeOfFreedom + 1) / 2) /
                 (Math.Sqrt(Math.PI * parameter.DegreeOfFreedom * parameter.Scale) * MathNet.Numerics.SpecialFunctions.Gamma(parameter.DegreeOfFreedom / 2)) *

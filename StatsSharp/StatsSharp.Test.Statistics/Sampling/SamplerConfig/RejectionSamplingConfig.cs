@@ -16,7 +16,8 @@ namespace StatsSharp.Test.Probability.SamplerConfig
             var m = 1.2;
 
             var rejectionSamplerConfig = new StatsSharp.Statistics.Sampling.SamplingConfig.RejectionSamplingConfig
-                <double, StatsSharp.Probability.Parameter.Continuous.Scalar.Normal, StatsSharp.Probability.Parameter.Continuous.Scalar.T>(norm, normParam, t, tParam, count, m: m);
+                <double, StatsSharp.Probability.Parameter.Continuous.Scalar.Normal, StatsSharp.Probability.Parameter.Continuous.Scalar.T>
+                (norm, normParam, t, tParam, m: m);
 
             Assert.IsTrue(rejectionSamplerConfig.TargetDistribution.GetType() == typeof(StatsSharp.Probability.Distribution.Continuous.Scalar.Normal));
             Assert.IsTrue(rejectionSamplerConfig.TargetDistParameter.GetType() == typeof(StatsSharp.Probability.Parameter.Continuous.Scalar.Normal));
@@ -27,7 +28,6 @@ namespace StatsSharp.Test.Probability.SamplerConfig
             Assert.AreEqual(tParam.Mean, rejectionSamplerConfig.ProposalDistParameter.Mean, 1.0e-10);
             Assert.AreEqual(tParam.Scale, rejectionSamplerConfig.ProposalDistParameter.Scale, 1.0e-10);
             Assert.AreEqual(tParam.DegreeOfFreedom, rejectionSamplerConfig.ProposalDistParameter.DegreeOfFreedom, 1.0e-10);
-            Assert.AreEqual(count, rejectionSamplerConfig.Count);
             Assert.AreEqual(m, rejectionSamplerConfig.M, 1.0e-10);
         }
     }

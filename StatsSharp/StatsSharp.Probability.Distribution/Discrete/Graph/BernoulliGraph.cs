@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Discrete.Graph
 {
-    public class BernoulliGraph : IRandomGraph<StatsSharp.Graph.Graph.Graph, Parameter.Discrete.Graph.BernoulliGraph>
+    public class BernoulliGraph : ADiscreteGraphDistribution<StatsSharp.Graph.Graph.Graph, Parameter.Discrete.Graph.BernoulliGraph>
     {
-        public IEnumerable<StatsSharp.Graph.Graph.Graph> GetSamples(Parameter.Discrete.Graph.BernoulliGraph parameter, int size)
+        public override IEnumerable<StatsSharp.Graph.Graph.Graph> GetSamples(Parameter.Discrete.Graph.BernoulliGraph parameter, int size)
         {
             var bernoulli = new Distribution.Discrete.Univariate.Categorical();
             var bernoulliParam = new Parameter.Discrete.Univariate.Categorical(new List<double>() {1-  parameter.EdgeConnectedProbability, parameter.EdgeConnectedProbability });

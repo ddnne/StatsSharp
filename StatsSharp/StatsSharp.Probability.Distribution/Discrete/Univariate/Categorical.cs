@@ -6,7 +6,7 @@ using StatsSharp.Extensions;
 
 namespace StatsSharp.Probability.Distribution.Discrete.Univariate
 {
-    public class Categorical : ADistribution<int, Parameter.Discrete.Univariate.Categorical>
+    public class Categorical : ADiscreteUnivariateDistribution<int, Parameter.Discrete.Univariate.Categorical>
     {
         public override Func<int, double> GetCumulativeDistributionFunction(Parameter.Discrete.Univariate.Categorical parameter)
         {
@@ -32,7 +32,7 @@ namespace StatsSharp.Probability.Distribution.Discrete.Univariate
             return Enumerable.Range(0, size).Select(i=> GetSample(parameter));
         }
 
-        protected override double ProbabilityDensityFunction(int data, Parameter.Discrete.Univariate.Categorical parameter)
+        public override double ProbabilityDensityFunction(int data, Parameter.Discrete.Univariate.Categorical parameter)
         {
             return parameter.Probabilities.ElementAt(data);
         }

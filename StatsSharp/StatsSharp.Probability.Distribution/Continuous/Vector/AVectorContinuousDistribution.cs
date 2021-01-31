@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StatsSharp.Probability.Distribution
+namespace StatsSharp.Probability.Distribution.Continuous.Vector
 {
-    public abstract class ADistribution<Data, Parameter> : IDistribution<Data, Parameter> where Parameter : IParameter
+    public abstract class AVectorContinuousDistribution<Data, Parameter> :
+        IHasProbabilityDensityFunctionDistribution<Data, Parameter>, 
+        IHasMaxOfValueProbabilityDensityFunction<Data, Parameter>
+        where Parameter : IParameter
     {
-        abstract protected double ProbabilityDensityFunction(Data data, Parameter parameter);
+        public abstract double ProbabilityDensityFunction(Data data, Parameter parameter);
 
         public Func<Parameter, double> GetLikelihoodFunction(Data data) => (Parameter parameter) => this.ProbabilityDensityFunction(data, parameter);
 
@@ -15,7 +18,6 @@ namespace StatsSharp.Probability.Distribution
 
         abstract public IEnumerable<Data> GetSamples(Parameter parameter, int size);
 
-        abstract public Func<Data, double> GetCumulativeDistributionFunction(Parameter parameter);
         public abstract double GetMaxValueProbabilityDensityFunction(Parameter parameter);
     }
 }

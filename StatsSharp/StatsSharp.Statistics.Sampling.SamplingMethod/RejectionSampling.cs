@@ -1,4 +1,5 @@
-﻿using StatsSharp.Probability.Parameter;
+﻿using StatsSharp.Probability.Distribution;
+using StatsSharp.Probability.Parameter;
 using StatsSharp.Statistics.Sampling.SamplingConfig;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,15 @@ namespace StatsSharp.Statistics.Sampling.SamplingMethod
         where TargetDistributionParameter : IParameter
         where ProposalDistributionParameter : IParameter
     {
-        public IEnumerable<TargetDistributionDataType> GetSamples(RejectionSamplingConfig<TargetDistributionDataType, TargetDistributionParameter, ProposalDistributionParameter> samplerConfig)
+        public IEnumerable<TargetDistributionDataType> GetSamples(RejectionSamplingConfig<TargetDistributionDataType, TargetDistributionParameter, ProposalDistributionParameter> samplerConfig, int size)
         {
-            return Enumerable.Range(0, samplerConfig.Count).Select(i =>
+            return Enumerable.Range(0, size).Select(i =>
             {
                 var uniformParam = new Probability.Parameter.Continuous.Scalar.Uniform(0, 1);
                 var uniform = new Probability.Distribution.Continuous.Scalar.Uniform();
 
-                var targetProbabilityDensityFunction = samplerConfig.TargetDistribution.GetProbabilityDensityFunction(samplerConfig.TargetDistParameter);
-                var proposalProbabilityDensityFunction = samplerConfig.ProposalDistribution.GetProbabilityDensityFunction(samplerConfig.ProposalDistParameter);
+                var targetProbabilityDensityFunction = ((IHasProbabilityDensityFunctionDistribution<TargetDistributionDataType, TargetDistributionParameter>)samplerConfig.TargetDistribution).GetProbabilityDensityFunction(samplerConfig.TargetDistParameter);
+                var proposalProbabilityDensityFunction = ((IHasProbabilityDensityFunctionDistribution<TargetDistributionDataType, ProposalDistributionParameter>)samplerConfig.ProposalDistribution).GetProbabilityDensityFunction(samplerConfig.ProposalDistParameter);
 
                 while (true)
                 {

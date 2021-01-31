@@ -8,24 +8,23 @@ using System.Text;
 namespace StatsSharp.Statistics.Sampling.SamplingConfig
 {
     // https://en.wikipedia.org/wiki/Rejection_sampling
-    // if M == null then M = max(TargetDist) / max(ProposalDist)
+    // [ToDo]: if M == null then M = max(TargetDist) / max(ProposalDist)
     public class RejectionSamplingConfig<TargetDistributionInputDataType, TargetDistributionParameter, ProposalDistributionParameter>
         : SamplingConfigBase<TargetDistributionInputDataType, TargetDistributionParameter>
         where TargetDistributionParameter : IParameter
         where ProposalDistributionParameter : IParameter
     {
         public RejectionSamplingConfig(
-            IDistribution<TargetDistributionInputDataType, TargetDistributionParameter> targetDistribution,
-            TargetDistributionParameter targetDistParameter, 
-            IDistribution<TargetDistributionInputDataType, ProposalDistributionParameter> proposalDistribution,
-            ProposalDistributionParameter proposalDistParameter,
-            int count, double m)
-            : base(targetDistribution, targetDistParameter, count)
+            IHasProbabilityDensityFunctionDistribution<TargetDistributionInputDataType, TargetDistributionParameter> targetDistribution, TargetDistributionParameter targetDistParameter,
+            IHasProbabilityDensityFunctionDistribution<TargetDistributionInputDataType, ProposalDistributionParameter> proposalDistribution, ProposalDistributionParameter proposalDistParameter,
+            double m)
+            : base(targetDistribution, targetDistParameter)
         {
             ProposalDistribution = proposalDistribution;
             ProposalDistParameter = proposalDistParameter;
             M = m;
         }
+
         public IDistribution<TargetDistributionInputDataType, ProposalDistributionParameter> ProposalDistribution { get; }
         public ProposalDistributionParameter ProposalDistParameter { get; }
         public double M { get; }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Discrete.Univariate
 {
-    public class Poisson : ADistribution<int, Parameter.Discrete.Univariate.Poisson>
+    public class Poisson : ADiscreteUnivariateDistribution<int, Parameter.Discrete.Univariate.Poisson>
     {
         public override Func<int, double> GetCumulativeDistributionFunction(Parameter.Discrete.Univariate.Poisson parameter)
         {
@@ -37,7 +37,7 @@ namespace StatsSharp.Probability.Distribution.Discrete.Univariate
             });
         }
 
-        protected override double ProbabilityDensityFunction(int k, Parameter.Discrete.Univariate.Poisson parameter)
+        public override double ProbabilityDensityFunction(int k, Parameter.Discrete.Univariate.Poisson parameter)
         {
             return k >= 0 ? Math.Pow(parameter.Intensity, k) * Math.Exp(-parameter.Intensity) / MathNet.Numerics.SpecialFunctions.Gamma(k + 1) : 0;
         }

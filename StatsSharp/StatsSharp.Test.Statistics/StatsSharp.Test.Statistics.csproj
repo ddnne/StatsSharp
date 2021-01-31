@@ -16,7 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
-    <ProjectReference Include="..\StatsSharp.Statistics.Sampling.SampingConfig\StatsSharp.Statistics.Sampling.SampingConfig.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.Sampling.SamplingMethod\StatsSharp.Statistics.Sampling.SamplingMethod.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.NullHypothesis\StatsSharp.Statistics.StatisticalTest.NullHypothesis.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.TestMethod\StatsSharp.Statistics.StatisticalTest.TestMethod.csproj" />

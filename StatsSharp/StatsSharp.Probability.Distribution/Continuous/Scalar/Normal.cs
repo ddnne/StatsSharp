@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Normal : ADistribution<double, Parameter.Continuous.Scalar.Normal>
+    public class Normal : AScalarContinuousDistribution<double, Parameter.Continuous.Scalar.Normal>
     {
-        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Normal parameter)
+        public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Normal parameter)
         {
             return Math.Exp(-Math.Pow((data - parameter.Mean) / parameter.StandardDeviation, 2) / 2)
                 / Math.Sqrt(2 * Math.PI * Math.Pow(parameter.StandardDeviation, 2));

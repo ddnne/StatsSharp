@@ -37,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sampling", "Sampling", "{24
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatistcalTest", "StatistcalTest", "{B092EEBB-7A04-4904-A934-E627E488925F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Statistics.Sampling.SampingConfig", "StatsSharp.Statistics.Sampling.SampingConfig\StatsSharp.Statistics.Sampling.SampingConfig.csproj", "{CF783416-9853-4709-A4A4-1381012AB4CA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Statistics.Sampling.SamplingMethod", "StatsSharp.Statistics.Sampling.SamplingMethod\StatsSharp.Statistics.Sampling.SamplingMethod.csproj", "{56D015D6-CB29-4A26-BF05-D2D49B00448C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Test.Probability", "StatsSharp.Test.Probability\StatsSharp.Test.Probability.csproj", "{801408B5-CFF1-453E-9FE7-0646B6C8AE99}"
@@ -51,25 +49,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Statistics.Stati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Statistics.StatisticalTest.TestResult", "StatsSharp.Statistics.StatisticalTest.TestResult\StatsSharp.Statistics.StatisticalTest.TestResult.csproj", "{A73131BA-8723-408B-8F80-9C81E61FD411}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.Extensions", "StatsSharp.Test.Extensions\StatsSharp.Test.Extensions.csproj", "{75B640C2-7876-4710-BA0F-365A3BEBAEA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Test.Extensions", "StatsSharp.Test.Extensions\StatsSharp.Test.Extensions.csproj", "{75B640C2-7876-4710-BA0F-365A3BEBAEA4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatsSharp.StochasticProcess", "StatsSharp.StochasticProcess", "{CCC0F42B-99F1-4143-9A06-4C8A5437051D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PointProcess", "PointProcess", "{4E17402D-06A4-40EB-BDBF-6EC622D08C55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.StochasticProcess.PointProcess", "StatsSharp.StochasticProcess.PointProcess\StatsSharp.StochasticProcess.PointProcess.csproj", "{1FAC783F-656B-49B2-BE4C-2F95021A3C4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.StochasticProcess.PointProcess", "StatsSharp.StochasticProcess.PointProcess\StatsSharp.StochasticProcess.PointProcess.csproj", "{1FAC783F-656B-49B2-BE4C-2F95021A3C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.StochasticProcess.PointProcessConfig", "StatsSharp.StochasticProcess.PointProcessConfig\StatsSharp.StochasticProcess.PointProcessConfig.csproj", "{8027A2F8-E696-473B-9A19-0CA9C83FB645}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.StochasticProcess.PointProcessConfig", "StatsSharp.StochasticProcess.PointProcessConfig\StatsSharp.StochasticProcess.PointProcessConfig.csproj", "{8027A2F8-E696-473B-9A19-0CA9C83FB645}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.StochasticProcess.PointProcessEvent", "StatsSharp.StochasticProcess.PointProcessEvent\StatsSharp.StochasticProcess.PointProcessEvent.csproj", "{8E0A5181-3ED7-44FB-953C-5EC0AAAE34CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.StochasticProcess.PointProcessEvent", "StatsSharp.StochasticProcess.PointProcessEvent\StatsSharp.StochasticProcess.PointProcessEvent.csproj", "{8E0A5181-3ED7-44FB-953C-5EC0AAAE34CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.StochasticProcess.RandomWalk", "StatsSharp.StochasticProcess.RandomWalk\StatsSharp.StochasticProcess.RandomWalk.csproj", "{81B9A28F-8DAB-4B7C-AC7C-2D5EFF757AC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.StochasticProcess.RandomWalk", "StatsSharp.StochasticProcess.RandomWalk\StatsSharp.StochasticProcess.RandomWalk.csproj", "{81B9A28F-8DAB-4B7C-AC7C-2D5EFF757AC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.StochasticProcess.RandomWalkConfig", "StatsSharp.StochasticProcess.RandomWalkConfig\StatsSharp.StochasticProcess.RandomWalkConfig.csproj", "{E7D60B35-333E-496E-ABEE-0617131EAB65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.StochasticProcess.RandomWalkConfig", "StatsSharp.StochasticProcess.RandomWalkConfig\StatsSharp.StochasticProcess.RandomWalkConfig.csproj", "{E7D60B35-333E-496E-ABEE-0617131EAB65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.StochasticProcess.PointProcessExtensions", "StatsSharp.StochasticProcess.PointProcessExtensions\StatsSharp.StochasticProcess.PointProcessExtensions.csproj", "{CF75E9AC-45F3-4F5D-A7BF-FC45A40DF6DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.StochasticProcess.PointProcessExtensions", "StatsSharp.StochasticProcess.PointProcessExtensions\StatsSharp.StochasticProcess.PointProcessExtensions.csproj", "{CF75E9AC-45F3-4F5D-A7BF-FC45A40DF6DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsSharp.Test.StochasticProcess", "StatsSharp.Test.StochasticProcess\StatsSharp.Test.StochasticProcess.csproj", "{91CAEE0B-8BBA-4FA2-89EF-307352F96EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Test.StochasticProcess", "StatsSharp.Test.StochasticProcess\StatsSharp.Test.StochasticProcess.csproj", "{91CAEE0B-8BBA-4FA2-89EF-307352F96EB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandomWalk", "RandomWalk", "{80B8B1F3-E02C-4D22-8CE9-772BD98085E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsSharp.Statistics.Sampling.SampingConfig", "StatsSharp.Statistics.Sampling.SampingConfig\StatsSharp.Statistics.Sampling.SampingConfig.csproj", "{2FB5A4E5-75A6-4831-83F9-36A02BBC9C40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,10 +123,6 @@ Global
 		{7D3375E8-3ABE-428E-9540-02A65E6EE6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D3375E8-3ABE-428E-9540-02A65E6EE6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D3375E8-3ABE-428E-9540-02A65E6EE6D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF783416-9853-4709-A4A4-1381012AB4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF783416-9853-4709-A4A4-1381012AB4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF783416-9853-4709-A4A4-1381012AB4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF783416-9853-4709-A4A4-1381012AB4CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56D015D6-CB29-4A26-BF05-D2D49B00448C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56D015D6-CB29-4A26-BF05-D2D49B00448C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56D015D6-CB29-4A26-BF05-D2D49B00448C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -181,6 +179,10 @@ Global
 		{91CAEE0B-8BBA-4FA2-89EF-307352F96EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91CAEE0B-8BBA-4FA2-89EF-307352F96EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91CAEE0B-8BBA-4FA2-89EF-307352F96EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB5A4E5-75A6-4831-83F9-36A02BBC9C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB5A4E5-75A6-4831-83F9-36A02BBC9C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB5A4E5-75A6-4831-83F9-36A02BBC9C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB5A4E5-75A6-4831-83F9-36A02BBC9C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -197,7 +199,6 @@ Global
 		{7D3375E8-3ABE-428E-9540-02A65E6EE6D3} = {533A6427-6439-45A3-8FBE-DDC01D77ABAE}
 		{24C5CB7F-290B-45D0-9B15-5ED311244563} = {BCDFAE55-0123-4DA6-8660-48DC418B8DB8}
 		{B092EEBB-7A04-4904-A934-E627E488925F} = {BCDFAE55-0123-4DA6-8660-48DC418B8DB8}
-		{CF783416-9853-4709-A4A4-1381012AB4CA} = {24C5CB7F-290B-45D0-9B15-5ED311244563}
 		{56D015D6-CB29-4A26-BF05-D2D49B00448C} = {24C5CB7F-290B-45D0-9B15-5ED311244563}
 		{801408B5-CFF1-453E-9FE7-0646B6C8AE99} = {9CD85AF6-792D-40E6-A2C7-9ED281D56CD0}
 		{76928C3E-DC1D-4FF8-A642-09616465234D} = {9CD85AF6-792D-40E6-A2C7-9ED281D56CD0}
@@ -209,10 +210,12 @@ Global
 		{1FAC783F-656B-49B2-BE4C-2F95021A3C4D} = {4E17402D-06A4-40EB-BDBF-6EC622D08C55}
 		{8027A2F8-E696-473B-9A19-0CA9C83FB645} = {4E17402D-06A4-40EB-BDBF-6EC622D08C55}
 		{8E0A5181-3ED7-44FB-953C-5EC0AAAE34CF} = {4E17402D-06A4-40EB-BDBF-6EC622D08C55}
-		{81B9A28F-8DAB-4B7C-AC7C-2D5EFF757AC6} = {4E17402D-06A4-40EB-BDBF-6EC622D08C55}
-		{E7D60B35-333E-496E-ABEE-0617131EAB65} = {4E17402D-06A4-40EB-BDBF-6EC622D08C55}
+		{81B9A28F-8DAB-4B7C-AC7C-2D5EFF757AC6} = {80B8B1F3-E02C-4D22-8CE9-772BD98085E9}
+		{E7D60B35-333E-496E-ABEE-0617131EAB65} = {80B8B1F3-E02C-4D22-8CE9-772BD98085E9}
 		{CF75E9AC-45F3-4F5D-A7BF-FC45A40DF6DA} = {4E17402D-06A4-40EB-BDBF-6EC622D08C55}
 		{91CAEE0B-8BBA-4FA2-89EF-307352F96EB8} = {9CD85AF6-792D-40E6-A2C7-9ED281D56CD0}
+		{80B8B1F3-E02C-4D22-8CE9-772BD98085E9} = {CCC0F42B-99F1-4143-9A06-4C8A5437051D}
+		{2FB5A4E5-75A6-4831-83F9-36A02BBC9C40} = {24C5CB7F-290B-45D0-9B15-5ED311244563}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0EC47B5-6E7F-4B4C-BDAF-0D709470DF1E}

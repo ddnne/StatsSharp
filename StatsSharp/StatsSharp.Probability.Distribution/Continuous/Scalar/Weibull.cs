@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Weibull : ADistribution<double, Parameter.Continuous.Scalar.Weibull>
+    public class Weibull : AScalarContinuousDistribution<double, Parameter.Continuous.Scalar.Weibull>
     {
-        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Weibull parameter)
+        public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Weibull parameter)
         {
             if (data < 0)
                 return 0;

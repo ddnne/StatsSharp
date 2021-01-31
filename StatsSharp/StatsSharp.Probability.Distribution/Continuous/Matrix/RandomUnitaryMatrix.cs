@@ -9,18 +9,8 @@ using System.Text;
 namespace StatsSharp.Probability.Distribution.Continuous.Matrix
 {
     // https://arxiv.org/abs/math-ph/0609050
-    public class RandomUnitaryMatrix : ADistribution<Matrix<Complex>, Parameter.Continuous.Matrix.RandomUnitaryMatrix>
+    public class RandomUnitaryMatrix : AMatrixContinuousDistribution<Matrix<Complex>, Parameter.Continuous.Matrix.RandomUnitaryMatrix>
     {
-        public override Func<Matrix<Complex>, double> GetCumulativeDistributionFunction(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
-        {
-            throw new NotSupportedException();
-        }
-
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
-        {
-            throw new NotImplementedException();
-        }
-
         protected virtual Matrix<Complex> GetSample(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
         {
             var normal = new Distribution.Continuous.Scalar.Normal();
@@ -40,11 +30,6 @@ namespace StatsSharp.Probability.Distribution.Continuous.Matrix
         public override IEnumerable<Matrix<Complex>> GetSamples(Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter, int size)
         {
             return Enumerable.Range(0, size).Select(i => GetSample(parameter));
-        }
-
-        protected override double ProbabilityDensityFunction(Matrix<Complex> data, Parameter.Continuous.Matrix.RandomUnitaryMatrix parameter)
-        {
-            throw new NotImplementedException();
         }
     }
 }

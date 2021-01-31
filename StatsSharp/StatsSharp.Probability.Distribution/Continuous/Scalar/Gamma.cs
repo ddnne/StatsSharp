@@ -6,7 +6,7 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Gamma : ADistribution<double, Parameter.Continuous.Scalar.Gamma>
+    public class Gamma : AScalarContinuousDistribution<double, Parameter.Continuous.Scalar.Gamma>
     {
         public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Continuous.Scalar.Gamma parameter)
         {
@@ -56,7 +56,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             });
         }
 
-        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Gamma parameter)
+        public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Gamma parameter)
         {
             return 1.0 / (SpecialFunctions.Gamma(parameter.K) * Math.Pow(parameter.Theta, parameter.K)) *
                 Math.Pow(data, parameter.K - 1) * Math.Exp(-data / parameter.Theta);

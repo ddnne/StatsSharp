@@ -7,20 +7,18 @@ using System.Text;
 namespace StatsSharp.Statistics.Sampling.SamplingConfig
 {
     public class SamplingConfigBase<TargetDistributionInputDataType, TargetDistributionParameter>
+        : ISamplingConfig<TargetDistributionInputDataType, TargetDistributionParameter>
         where TargetDistributionParameter : IParameter
     {
         public SamplingConfigBase(
             IDistribution<TargetDistributionInputDataType, TargetDistributionParameter> targetDistribution,
-            TargetDistributionParameter targetDistParameter,
-            int count)
+            TargetDistributionParameter targetDistParameter)
         {
             TargetDistribution = targetDistribution;
             TargetDistParameter = targetDistParameter;
-            Count = count;
         }
 
         public IDistribution<TargetDistributionInputDataType, TargetDistributionParameter> TargetDistribution { get; }
         public TargetDistributionParameter TargetDistParameter { get; }
-        public int Count { get; }
     }
 }

@@ -9,18 +9,8 @@ using System.Text;
 namespace StatsSharp.Probability.Distribution.Continuous.Matrix
 {
     // https://arxiv.org/abs/math-ph/0609050
-    public class RandomOrthogonalMatrix : ADistribution<Matrix<double>, Parameter.Continuous.Matrix.RandomOrthogonalMatrix>
+    public class RandomOrthogonalMatrix : AMatrixContinuousDistribution<Matrix<double>, Parameter.Continuous.Matrix.RandomOrthogonalMatrix>
     {
-        public override Func<Matrix<double>, double> GetCumulativeDistributionFunction(Parameter.Continuous.Matrix.RandomOrthogonalMatrix parameter)
-        {
-            throw new NotSupportedException();
-        }
-
-        public override double GetMaxValueProbabilityDensityFunction(Parameter.Continuous.Matrix.RandomOrthogonalMatrix parameter)
-        {
-            throw new NotImplementedException();
-        }
-
         private Matrix<double> GetSample(Parameter.Continuous.Matrix.RandomOrthogonalMatrix parameter)
         {
             var normal = new Distribution.Continuous.Scalar.Normal();
@@ -37,11 +27,6 @@ namespace StatsSharp.Probability.Distribution.Continuous.Matrix
         public override IEnumerable<Matrix<double>> GetSamples(Parameter.Continuous.Matrix.RandomOrthogonalMatrix parameter, int size)
         {
             return Enumerable.Range(0, size).Select(i => GetSample(parameter));
-        }
-
-        protected override double ProbabilityDensityFunction(Matrix<double> data, Parameter.Continuous.Matrix.RandomOrthogonalMatrix parameter)
-        {
-            throw new NotImplementedException();
         }
     }
 }

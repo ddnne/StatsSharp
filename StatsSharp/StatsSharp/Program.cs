@@ -24,9 +24,10 @@ namespace StatsSharp
             var rejectionSamplerConfig = new Statistics.Sampling.SamplingConfig.RejectionSamplingConfig
                 <double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>
                 (new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(2),
-                new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(4), size, 2);
-            var sampler = new Statistics.Sampling.SamplingMethod.RejectionSampling<double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>();
-            var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig);
+                new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(4), 2);
+            var sampler = new Statistics.Sampling.SamplingMethod.RejectionSampling
+                <double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>();
+            var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig, size);
 
             var nullHypothesis = new Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(sampleFromSampler, 0);
             var tTest = new Statistics.StatisticalTest.TestMethod.Parametric.TTestOneSample();

@@ -6,7 +6,7 @@ using StatsSharp.Extensions;
 
 namespace StatsSharp.Probability.Distribution.Discrete.Multivariate
 {
-    public class Multinomial : ADistribution<IEnumerable<int>, Parameter.Discrete.Multivariate.Multinomial>
+    public class Multinomial : ADiscreteMultivariateDistribution<IEnumerable<int>, Parameter.Discrete.Multivariate.Multinomial>
     {
         public Multinomial()
         {
@@ -14,11 +14,6 @@ namespace StatsSharp.Probability.Distribution.Discrete.Multivariate
         }
 
         private Univariate.Categorical CategoricalDist { get; }
-
-        public override Func<IEnumerable<int>, double> GetCumulativeDistributionFunction(Parameter.Discrete.Multivariate.Multinomial parameter)
-        {
-            throw new NotSupportedException();
-        }
 
         public override double GetMaxValueProbabilityDensityFunction(Parameter.Discrete.Multivariate.Multinomial parameter)
         {
@@ -37,7 +32,7 @@ namespace StatsSharp.Probability.Distribution.Discrete.Multivariate
             return Enumerable.Range(0, size).Select(i=> GetSample(parameter));
         }
 
-        protected override double ProbabilityDensityFunction(IEnumerable<int> data, Parameter.Discrete.Multivariate.Multinomial parameter)
+        public override double ProbabilityDensityFunction(IEnumerable<int> data, Parameter.Discrete.Multivariate.Multinomial parameter)
         {
             if (data.Sum() != parameter.NumberOfTrials)
                 throw new ArgumentException();

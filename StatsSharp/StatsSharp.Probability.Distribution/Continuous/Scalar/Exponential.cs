@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StatsSharp.Probability.Distribution.Continuous.Scalar
 {
-    public class Exponential : ADistribution<double, Parameter.Continuous.Scalar.Exponential>
+    public class Exponential : AScalarContinuousDistribution<double, Parameter.Continuous.Scalar.Exponential>
     {
         public override Func<double, double> GetCumulativeDistributionFunction(Parameter.Continuous.Scalar.Exponential parameter)
         {
@@ -23,7 +23,7 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             return uniformSamples.Select(x => -parameter.Average * Math.Log(x));
         }
 
-        protected override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Exponential parameter)
+        public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Exponential parameter)
         {
             return data >= 0 ? Math.Exp(-data / parameter.Average) / parameter.Average : 0;
         }
