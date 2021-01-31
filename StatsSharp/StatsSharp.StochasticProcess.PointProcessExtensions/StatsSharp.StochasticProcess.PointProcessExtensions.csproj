@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Extensions\StatsSharp.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.PointProcessConfig\StatsSharp.StochasticProcess.PointProcessConfig.csproj" />
+    <ProjectReference Include="..\StatsSharp.StochasticProcess.PointProcessEvent\StatsSharp.StochasticProcess.PointProcessEvent.csproj" />
+  </ItemGroup>
+
+</Project>

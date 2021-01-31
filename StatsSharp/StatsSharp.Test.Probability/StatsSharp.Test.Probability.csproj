@@ -14,11 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StatsSharp.Probability\StatsSharp.Probability.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Distribution\Continuous\Matrix\" />
+    <ProjectReference Include="..\StatsSharp.Graph.Edge\StatsSharp.Graph.Edge.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Graph\StatsSharp.Graph.Graph.csproj" />
+    <ProjectReference Include="..\StatsSharp.Graph.Node\StatsSharp.Graph.Node.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
   </ItemGroup>
 
 </Project>

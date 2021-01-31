@@ -21,15 +21,16 @@ namespace StatsSharp
         static void CheckRejectionSampling()
         {
             var size = 10000;
-            var rejectionSamplerConfig = new Probability.SamplerConfig.RejectionSamplerConfig
+            var rejectionSamplerConfig = new Statistics.Sampling.SamplingConfig.RejectionSamplingConfig
                 <double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>
                 (new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(2),
                 new Probability.Distribution.Continuous.Scalar.Exponential(), new Probability.Parameter.Continuous.Scalar.Exponential(4), size, 2);
-            var sampler = new Probability.Sampler.RejectionSampler<double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>();
+            var sampler = new Statistics.Sampling.SamplingMethod.RejectionSampling<double, Probability.Parameter.Continuous.Scalar.Exponential, Probability.Parameter.Continuous.Scalar.Exponential>();
             var sampleFromSampler = sampler.GetSamples(rejectionSamplerConfig);
 
             var nullHypothesis = new Statistics.StatisticalTest.NullHypothesis.TTestOneSampleNullHypothesis(sampleFromSampler, 0);
-            var results = Statistics.StatisticalTest.TestMethod.Parametric.TTestOneSample(nullHypothesis);
+            var tTest = new Statistics.StatisticalTest.TestMethod.Parametric.TTestOneSample();
+            var results = tTest.Test(nullHypothesis);
 
             Console.WriteLine(results.Statistics);
             Console.WriteLine(results.PValue);
