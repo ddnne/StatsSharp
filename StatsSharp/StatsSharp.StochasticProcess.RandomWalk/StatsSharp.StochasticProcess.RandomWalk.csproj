@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StatsSharp.Graph.Extensions\StatsSharp.Graph.Extensions.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution.Continous\StatsSharp.Probability.Distribution.Continous.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution.Discrete\StatsSharp.Probability.Distribution.Discrete.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
     <ProjectReference Include="..\StatsSharp.StochasticProcess.RandomWalkConfig\StatsSharp.StochasticProcess.RandomWalkConfig.csproj" />

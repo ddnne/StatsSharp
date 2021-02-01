@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution.Continous\StatsSharp.Probability.Distribution.Continous.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.NullHypothesis\StatsSharp.Statistics.StatisticalTest.NullHypothesis.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.StatisticalTest.TestResult\StatsSharp.Statistics.StatisticalTest.TestResult.csproj" />

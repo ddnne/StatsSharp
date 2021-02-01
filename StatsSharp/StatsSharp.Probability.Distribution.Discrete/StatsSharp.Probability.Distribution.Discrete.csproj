@@ -8,7 +8,6 @@
     <ProjectReference Include="..\StatsSharp.Probability.Distribution.Continous\StatsSharp.Probability.Distribution.Continous.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
-    <ProjectReference Include="..\StatsSharp.Statistics.Sampling.SampingConfig\StatsSharp.Statistics.Sampling.SampingConfig.csproj" />
   </ItemGroup>
 
 </Project>

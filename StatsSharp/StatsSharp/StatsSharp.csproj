@@ -13,6 +13,8 @@
     <ProjectReference Include="..\StatsSharp.Graph.GraphFamilies\StatsSharp.Graph.GraphFamilies.csproj" />
     <ProjectReference Include="..\StatsSharp.Graph.Graph\StatsSharp.Graph.Graph.csproj" />
     <ProjectReference Include="..\StatsSharp.Graph.Node\StatsSharp.Graph.Node.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution.Continous\StatsSharp.Probability.Distribution.Continous.csproj" />
+    <ProjectReference Include="..\StatsSharp.Probability.Distribution.Discrete\StatsSharp.Probability.Distribution.Discrete.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Distribution\StatsSharp.Probability.Distribution.csproj" />
     <ProjectReference Include="..\StatsSharp.Probability.Parameter\StatsSharp.Probability.Parameter.csproj" />
     <ProjectReference Include="..\StatsSharp.Statistics.Sampling.SamplingMethod\StatsSharp.Statistics.Sampling.SamplingMethod.csproj" />
