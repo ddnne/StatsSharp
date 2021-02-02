@@ -128,5 +128,23 @@ namespace StatsSharp.Test.Extensions
             CollectionAssert.AreEqual(new int[] { 1, 2 }, results_.First().ToList());
             CollectionAssert.AreEqual(new int[] { 2, 1 }, results_.Last().ToList());
         }
+
+        [TestMethod]
+        public void ChunkTest()
+        {
+            var values = new int[] { 1, 2, 3, 4, 5 };
+            var chunks = values.Chunk(2);
+            CollectionAssert.AreEqual(new int[] { 1, 2 }, chunks.ElementAt(0).ToArray());
+            CollectionAssert.AreEqual(new int[] { 3, 4 }, chunks.ElementAt(1).ToArray());
+            CollectionAssert.AreEqual(new int[] { 5 }, chunks.ElementAt(2).ToArray());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ChunkThrowExcepionTest()
+        {
+            var values = new int[] { 1, 2, 3, 4, 5 };
+            var chunks = values.Chunk(0).ToList();
+        }
     }
 }

@@ -61,5 +61,19 @@ namespace StatsSharp.Test.Probability.Distribution.Continuous.Scalar
             var parameter = new StatsSharp.Probability.Parameter.Continuous.Scalar.Exponential(average);
             Assert.AreEqual(1.0, exp.GetMaxValueProbabilityDensityFunction(parameter), 1.0e-10);
         }
+
+        [TestMethod]
+        public void TestGenerateFromUniform()
+        {
+            var unif = 0.5;
+            var average = 1.0;
+            var param = new StatsSharp.Probability.Parameter.Continuous.Scalar.Exponential(average);
+            var exp = new StatsSharp.Probability.Distribution.Continuous.Scalar.Exponential();
+
+            var expected = -Math.Log(unif);
+            var actual = exp.GenerateFromUniform(unif, param);
+
+            Assert.AreEqual(expected, actual, 1.0e-10);
+        }
     }
 }

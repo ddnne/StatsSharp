@@ -17,10 +17,15 @@ namespace StatsSharp.Probability.Distribution.Continuous.Scalar
             return GetProbabilityDensityFunction(parameter)(0);
         }
 
+        internal double GenerateFromUniform(double unifSample, Parameter.Continuous.Scalar.Exponential parameter)
+        {
+            return -parameter.Average * Math.Log(unifSample);
+        }
+
         public override IEnumerable<double> GetSamples(Parameter.Continuous.Scalar.Exponential parameter, int size)
         {
             var uniformSamples = new Distribution.Continuous.Scalar.Uniform().GetSamples(new Parameter.Continuous.Scalar.Uniform(0, 1), size);
-            return uniformSamples.Select(x => -parameter.Average * Math.Log(x));
+            return uniformSamples.Select(x => GenerateFromUniform(x, parameter));
         }
 
         public override double ProbabilityDensityFunction(double data, Parameter.Continuous.Scalar.Exponential parameter)

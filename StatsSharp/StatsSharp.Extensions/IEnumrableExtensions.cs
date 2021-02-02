@@ -158,5 +158,18 @@ namespace StatsSharp.Extensions
                     yield return ret;
             }
         }
+
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> values, int size)
+        {
+            if (size <= 0)
+                throw new ArgumentException();
+
+            var tmp = (IEnumerable<T>)new List<T>(values);
+            while (tmp.Any())
+            {
+                yield return tmp.Take(size);
+                tmp = tmp.Skip(size);
+            }
+        }
     }
 }
